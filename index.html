@@ -401,6 +401,23 @@ nav {
   accent-color: var(--brand);
 }
 
+.form-status {
+  margin: 0 0 14px;
+
+  padding: 11px 13px;
+
+  border: 1px solid #ffd4ce;
+  border-radius: 10px;
+
+  background: #fff0ee;
+
+  color: #9f1c16;
+
+  font-size: 13px;
+
+  line-height: 1.45;
+}
+
 button {
   width: 100%;
 
@@ -431,6 +448,12 @@ button {
 
 button:hover {
   filter: brightness(1.05);
+}
+
+button:disabled {
+  cursor: wait;
+
+  opacity: .75;
 }
 
 
@@ -1015,7 +1038,19 @@ footer {
         </label>
 
 
-        <button type="submit">
+        <div
+          class="form-status"
+          id="formStatus"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></div>
+
+
+        <button
+          id="submitButton"
+          type="submit"
+        >
 
           Join the waitlist →
 
@@ -1170,65 +1205,77 @@ footer {
 </div>
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
 <script>
 
-/* =========================
-   FORM
-========================= */
+const form = document.getElementById("waitForm");
+const formView = document.getElementById("formView");
+const success = document.getElementById("success");
+const formStatus = document.getElementById("formStatus");
+const submitButton = document.getElementById("submitButton");
 
-const form =
-  document.getElementById("waitForm");
+const config = window.SUPABASE_CONFIG || {};
+const publicKey = config.publishableKey || config.anonKey;
+const supabaseClient =
+  window.supabase && config.url && publicKey
+    ? window.supabase.createClient(config.url, publicKey)
+    : null;
 
-const formView =
-  document.getElementById("formView");
+function showFormError(message) {
+  formStatus.textContent = message;
+  formStatus.hidden = false;
+}
 
-const success =
-  document.getElementById("success");
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  formStatus.hidden = true;
 
-
-/* =========================
-   SUBMIT FORM
-========================= */
-
-form.addEventListener(
-  "submit",
-  function(event) {
-
-    event.preventDefault();
-
-
-    /* Show success message */
-
-    formView.style.display =
-      "none";
-
-    success.style.display =
-      "block";
-
+  if (!supabaseClient) {
+    showFormError("The waitlist is not connected yet. Please try again later.");
+    return;
   }
-);
 
+  const submission = {
+    full_name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim().toLowerCase(),
+    area: document.getElementById("area").value.trim(),
+    customer_type: document.getElementById("type").value,
+    preferred_plan: document.getElementById("plan").value,
+    priority: document.getElementById("priority").value,
+    landmark: document.getElementById("landmark").value.trim() || null,
+    consent: document.getElementById("consent").checked,
+  };
 
-/* =========================
-   ADD ANOTHER PERSON
-========================= */
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting…";
 
-document
-  .getElementById("again")
-  .addEventListener(
-    "click",
-    function() {
+  try {
+    const { error } = await supabaseClient
+      .from("waitlist_submissions")
+      .insert(submission);
 
-      form.reset();
+    if (error) throw error;
 
-      success.style.display =
-        "none";
+    form.reset();
+    formView.style.display = "none";
+    success.style.display = "block";
+  } catch (error) {
+    console.error("Waitlist submission failed:", error);
+    showFormError("We couldn't save your signup. Check your connection and try again.");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Join the waitlist →";
+  }
+});
 
-      formView.style.display =
-        "block";
-
-    }
-  );
+document.getElementById("again").addEventListener("click", function() {
+  form.reset();
+  formStatus.hidden = true;
+  success.style.display = "none";
+  formView.style.display = "block";
+});
 
 </script>
 
