@@ -119,15 +119,21 @@ nav {
 }
 
 .pill {
-  border: 1px solid var(--border);
+  border: 1px solid rgba(11,124,255,.18);
 
   padding: 10px 15px;
 
   border-radius: 999px;
 
-  color: var(--text) !important;
+  color: #075fc7 !important;
 
-  background: rgba(255,255,255,.65);
+  background: #e7f2ff;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.pill:hover {
+  background: #d9ebff;
+  transform: translateY(-1px);
 }
 
 
@@ -246,6 +252,55 @@ nav {
   max-width: 600px;
 
   margin: 0 0 30px;
+}
+
+.hero-question {
+  margin: 22px 0 8px;
+  color: #075fc7;
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.hero .hero-question + p {
+  margin-top: 0;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 54px;
+  margin: 0 0 4px;
+  padding: 0 20px;
+  border-radius: 14px;
+  background: linear-gradient(100deg, var(--brand), #1169e8 58%, #4a76f2);
+  box-shadow: 0 14px 28px rgba(11,124,255,.22);
+  color: white;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .025em;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px rgba(11,124,255,.28);
+  filter: brightness(1.04);
+}
+
+.hero-cta:focus-visible,
+.pill:focus-visible {
+  outline: 3px solid rgba(11,124,255,.35);
+  outline-offset: 3px;
+}
+
+.hero-cta-arrow {
+  font-size: 18px;
+  line-height: 1;
 }
 
 .stats {
@@ -529,11 +584,7 @@ button:disabled {
 
   padding: 38px;
 
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 40px;
+  display: block;
 
   overflow: hidden;
 
@@ -554,20 +605,108 @@ button:disabled {
   top: -150px;
 
   border: 55px solid rgba(24,199,161,.13);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.coveragebox > * {
+  position: relative;
+  z-index: 1;
+}
+
+.coverage-intro {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.coverage-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #78ead1;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
 }
 
 .coverage h2 {
-  font-size: 34px;
+  font-size: clamp(30px, 4vw, 42px);
 
   letter-spacing: -.05em;
 
-  margin: 0 0 10px;
+  line-height: 1.05;
+
+  margin: 0 0 12px;
 }
 
 .coverage p {
   color: #b9c8da;
 
   line-height: 1.6;
+
+  margin: 0;
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.benefit-card {
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 20px;
+  background: rgba(255,255,255,.07);
+  backdrop-filter: blur(8px);
+}
+
+.benefit-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 20px;
+  place-items: center;
+  border: 1px solid rgba(120,234,209,.3);
+  border-radius: 12px;
+  background: rgba(24,199,161,.13);
+  color: #78ead1;
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.benefit-card h3 {
+  margin: 0 0 8px;
+  color: white;
+  font-size: 18px;
+  letter-spacing: -.025em;
+}
+
+.benefit-card p {
+  color: #b9c8da;
+  font-size: 14px;
+}
+
+.demand-footer {
+  display: grid;
+  grid-template-columns: minmax(220px, .8fr) 1.2fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.14);
+}
+
+.demand-footer h3 {
+  margin: 0 0 6px;
+  color: white;
+  font-size: 17px;
+  letter-spacing: -.02em;
+}
+
+.demand-footer p {
+  font-size: 13px;
 }
 
 .areas {
@@ -639,7 +778,15 @@ footer {
     display: none;
   }
 
-  .coveragebox {
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .benefit-card {
+    min-height: 0;
+  }
+
+  .demand-footer {
     grid-template-columns: 1fr;
   }
 
@@ -665,6 +812,19 @@ footer {
 
   .stats {
     gap: 18px;
+  }
+
+  .hero-cta {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .coveragebox {
+    padding: 26px 22px;
+  }
+
+  .areas {
+    gap: 8px;
   }
 
 }
@@ -701,9 +861,9 @@ footer {
 
     <a
       class="pill"
-      href="#waitlist"
+      href="#waitlist-form"
     >
-      Join waitlist
+      Join now
     </a>
 
   </div>
@@ -742,13 +902,22 @@ footer {
     </h1>
 
 
+    <h2 class="hero-question">
+      Why am I here?
+    </h2>
+
+
     <p>
 
-      Join the waitlist to be among the first
-      to know when our internet service becomes
-      available in your area.
+      Tired of slow, unreliable, or overpriced internet? Get ready for a better connection for working from home, streaming, gaming, business, or school. Join us and help bring better internet to your area.
 
     </p>
+
+
+    <a class="hero-cta" href="#waitlist-form">
+      <span>JOIN THE WAITLIST NOW!!!</span>
+      <span class="hero-cta-arrow" aria-hidden="true">↗</span>
+    </a>
 
 
     <div class="stats">
@@ -785,7 +954,7 @@ footer {
 
   <!-- WAITLIST FORM -->
 
-  <div class="card">
+  <div class="card" id="waitlist-form">
 
     <div id="formView">
 
@@ -1052,7 +1221,7 @@ footer {
           type="submit"
         >
 
-          Join the waitlist →
+          JOIN THE WAITLIST NOW!!!
 
         </button>
 
@@ -1105,7 +1274,7 @@ footer {
 </section>
 
 
-<!-- WHY / DEMAND SECTION -->
+<!-- WAITLIST BENEFITS AND DEMAND SECTION -->
 
 <section
   class="coverage"
@@ -1115,27 +1284,58 @@ footer {
   <div class="coveragebox">
 
 
-    <div>
+    <div class="coverage-intro">
+
+      <span class="coverage-kicker">
+        What's in it for me?
+      </span>
 
       <h2>
-        Help us understand demand.
+        Get in early. Help shape what comes next.
       </h2>
 
 
       <p>
 
-        Your waitlist helps us understand
-        where people want better internet
-        and what they value most, so we
-        can plan service around real
-        customer needs.
+        Joining the waitlist keeps you in the loop and helps us understand where better internet is needed most.
 
       </p>
 
     </div>
 
 
-    <div class="areas">
+    <div class="benefit-grid">
+
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">01</div>
+        <h3>Be first in line</h3>
+        <p>Be among the first to know when the service goes live and get ready to connect.</p>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">02</div>
+        <h3>Help choose where we expand</h3>
+        <p>Your signup helps show where demand is strongest and informs which areas we serve next.</p>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">03</div>
+        <h3>Know when your area is ready</h3>
+        <p>We'll notify you as soon as your address or area becomes eligible for service.</p>
+      </article>
+
+    </div>
+
+
+    <div class="demand-footer">
+
+      <div>
+        <h3>What matters most to you?</h3>
+        <p>Your answers help us plan around real customer needs.</p>
+      </div>
+
+
+      <div class="areas" aria-label="Things customers value">
 
       <span class="area">
         Fast internet
@@ -1172,6 +1372,8 @@ footer {
       <span class="area">
         Easy installation
       </span>
+
+      </div>
 
     </div>
 
@@ -1266,7 +1468,7 @@ form.addEventListener("submit", async function(event) {
     showFormError("We couldn't save your signup. Check your connection and try again.");
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "Join the waitlist →";
+    submitButton.textContent = "JOIN THE WAITLIST NOW!!!";
   }
 });
 
