@@ -816,6 +816,256 @@ footer {
 
 }
 
+
+/* =========================
+   DUAL VISUAL SHOWCASE
+========================= */
+
+.visual-showcase {
+  max-width: 1160px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 800px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.showcase-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(6, 19, 39, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.showcase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 55px rgba(6, 19, 39, 0.1);
+}
+
+.showcase-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #090d16;
+}
+
+.showcase-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.showcase-card:hover .showcase-img-wrap img {
+  transform: scale(1.03);
+}
+
+.showcase-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(11, 19, 36, 0.85);
+  backdrop-filter: blur(8px);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.showcase-body {
+  padding: 22px 24px 26px;
+  flex: 1;
+}
+
+.showcase-body h3 {
+  margin: 0 0 6px;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  color: var(--text);
+}
+
+.showcase-body p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+/* =========================
+   SPEED PLANS SECTION
+========================= */
+
+.plans-section {
+  max-width: 1160px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.plans-intro {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 36px;
+}
+
+.plans-kicker {
+  display: inline-block;
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.plans-intro h2 {
+  font-size: clamp(26px, 3.5vw, 38px);
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.plans-intro p {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 12px 35px rgba(6, 19, 39, 0.05);
+  position: relative;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.plan-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(11, 124, 255, 0.35);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--brand);
+  box-shadow: 0 18px 50px rgba(11, 124, 255, 0.12);
+}
+
+.plan-featured-badge {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  background: var(--brand);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 4px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(11, 124, 255, 0.35);
+}
+
+.plan-top {
+  margin-bottom: 20px;
+}
+
+.plan-tier {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.plan-speed {
+  font-size: 38px;
+  font-weight: 850;
+  letter-spacing: -.04em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.plan-speed span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--brand);
+}
+
+.plan-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.plan-features li {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plan-features li::before {
+  content: "?";
+  color: var(--brand2);
+  font-weight: 850;
+  font-size: 14px;
+}
+
+.plan-footer {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brand);
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
 </style>
 </head>
 
@@ -841,6 +1091,8 @@ footer {
 
 
   <div class="navlinks">
+
+    <a href="#plans">Plans</a>
 
     <a href="#why">
       Why Us
@@ -1256,6 +1508,34 @@ footer {
 </section>
 
 
+
+<!-- DUAL VISUAL EXPERIENCE SHOWCASE -->
+<section class="visual-showcase">
+  <div class="showcase-grid">
+    <div class="showcase-card">
+      <div class="showcase-img-wrap">
+        <img src="assets/lifestyle-hero.jpg" alt="Seamless home streaming and working" />
+        <div class="showcase-badge">?? Home & Family</div>
+      </div>
+      <div class="showcase-body">
+        <h3>Buffer-Free Streaming & Remote Work</h3>
+        <p>Reliable connection built for video calls, heavy downloads, and multiple devices streaming simultaneously without drops.</p>
+      </div>
+    </div>
+
+    <div class="showcase-card">
+      <div class="showcase-img-wrap">
+        <img src="assets/fiber-hero.jpg" alt="Dedicated fiber optical router and high-speed signal" />
+        <div class="showcase-badge">? Pure Optical Fiber</div>
+      </div>
+      <div class="showcase-body">
+        <h3>Next-Gen Gigabit Fiber Hardware</h3>
+        <p>Dedicated high-speed infrastructure delivering ultra-low latency, pure optical stability, and peak performance 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- WAITLIST BENEFITS AND DEMAND SECTION -->
 
 <section
@@ -1363,6 +1643,64 @@ footer {
 
 </section>
 
+
+
+<!-- SPEED PLANS SECTION -->
+<section class="plans-section" id="plans">
+  <div class="plans-intro">
+    <span class="plans-kicker">Transparent & Unmetered</span>
+    <h2>Choose The Right Speed For Your Lifestyle</h2>
+    <p>Transparent, unthrottled, unmetered fiber internet.</p>
+  </div>
+
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-top">
+        <span class="plan-tier">Home Starter</span>
+        <div class="plan-speed">100 <span>Mbps</span></div>
+        <p class="plan-desc">Ideal for small apartments and everyday connectivity.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Buffer-free HD streaming</li>
+        <li>Smooth video conferencing</li>
+        <li>Unlimited monthly data</li>
+        <li>Standard Wi-Fi router included</li>
+      </ul>
+      <div class="plan-footer">No setup hidden fees</div>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-featured-badge">Most Popular</div>
+      <div class="plan-top">
+        <span class="plan-tier">Family & Creator</span>
+        <div class="plan-speed">300 <span>Mbps</span></div>
+        <p class="plan-desc">Built for multiple devices, 4K streaming, and gaming.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Supports 10+ devices simultaneously</li>
+        <li>4K Ultra-HD on multiple screens</li>
+        <li>Low-latency online gaming</li>
+        <li>Priority technical support</li>
+      </ul>
+      <div class="plan-footer">Free high-power Wi-Fi router</div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-top">
+        <span class="plan-tier">Business Fiber</span>
+        <div class="plan-speed">1,000 <span>Mbps</span></div>
+        <p class="plan-desc">Dedicated gigabit connection for businesses & heavy users.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Dedicated symmetrical gigabit link</li>
+        <li>Static IP address available</li>
+        <li>99.9% uptime SLA guarantee</li>
+        <li>24/7 dedicated account manager</li>
+      </ul>
+      <div class="plan-footer">Enterprise SLA included</div>
+    </div>
+  </div>
+</section>
 
 </main>
 
