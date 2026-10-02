@@ -667,6 +667,165 @@ button[type="submit"]:disabled {
 .area:nth-child(3) { border-color: rgba(118, 87, 255, 0.4); color: #c4b5fd; }
 .area:nth-child(4) { border-color: rgba(251, 191, 36, 0.4); color: #fde68a; }
 
+/* PACKAGE IDEAS */
+.plans-section {
+  max-width: 1160px;
+  margin: 0 auto 84px;
+  padding: 0 24px;
+}
+
+.plans-intro {
+  max-width: 760px;
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.plans-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 12px;
+  border: 1px solid #b9dcfe;
+  border-radius: 999px;
+  background: #e1f0ff;
+  color: #1768ba;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.plans-intro h2 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 850;
+  letter-spacing: -.045em;
+  line-height: 1.1;
+}
+
+.plans-intro > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.plans-note {
+  margin: 20px auto 0;
+  padding: 13px 16px;
+  border: 1px solid #f1d28b;
+  border-radius: 14px;
+  background: #fff8e7;
+  color: #72520d;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+
+.plan-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: 0 12px 35px rgba(6, 19, 39, 0.06);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--brand);
+  box-shadow: 0 20px 48px rgba(11, 124, 255, 0.13);
+}
+
+.plan-featured-badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--brand), #00a9df);
+  color: white;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.plan-top {
+  margin-bottom: 18px;
+}
+
+.plan-tier {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.plan-speed {
+  margin-bottom: 9px;
+  color: var(--text);
+  font-size: 38px;
+  font-weight: 850;
+  letter-spacing: -.045em;
+  line-height: 1;
+}
+
+.plan-speed span {
+  color: var(--brand);
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.plan-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.plan-features {
+  flex: 1;
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.plan-features li::before {
+  content: "✓";
+  color: var(--brand2);
+  font-weight: 850;
+}
+
+.plan-footer {
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 750;
+}
+
 /* =========================
    FOOTER
 ========================= */
@@ -698,6 +857,9 @@ footer {
   }
   .coverage-top,
   .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+  .plans-grid {
     grid-template-columns: 1fr;
   }
   .card {
@@ -747,6 +909,13 @@ footer {
   .coveragebox {
     padding: 28px 22px;
   }
+  .plans-section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .plan-card {
+    padding: 26px 22px;
+  }
   .foot {
     flex-direction: column;
   }
@@ -775,6 +944,7 @@ footer {
 
   <div class="navlinks">
     <a href="#why">Why Us</a>
+    <a href="#plans">Packages</a>
     <a class="pill" href="#waitlist-form">Join now</a>
   </div>
 </nav>
@@ -978,6 +1148,64 @@ footer {
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- PACKAGE IDEAS FROM THE SUPPLIED CONCEPT -->
+<section class="plans-section" id="plans" aria-labelledby="plans-title">
+  <div class="plans-intro">
+    <span class="plans-kicker">Package ideas</span>
+    <h2 id="plans-title">Choose the speed for your lifestyle</h2>
+    <p>Explore the package concepts being considered for home and business internet.</p>
+    <div class="plans-note" role="note">
+      These are draft ideas. Speeds, features, equipment, support, fees, and service terms are not confirmed and may change before launch.
+    </div>
+  </div>
+
+  <div class="plans-grid">
+    <article class="plan-card">
+      <div class="plan-top">
+        <span class="plan-tier">Home Starter · draft</span>
+        <div class="plan-speed">100 <span>Mbps</span></div>
+        <p class="plan-desc">A concept for smaller homes and everyday connectivity.</p>
+      </div>
+      <ul class="plan-features">
+        <li>HD streaming and smooth video calls</li>
+        <li>Unlimited data concept</li>
+        <li>Standard Wi-Fi router concept</li>
+      </ul>
+      <div class="plan-footer">Setup fees and pricing to be confirmed</div>
+    </article>
+
+    <article class="plan-card featured">
+      <div class="plan-featured-badge">Featured idea</div>
+      <div class="plan-top">
+        <span class="plan-tier">Family &amp; Creator · draft</span>
+        <div class="plan-speed">300 <span>Mbps</span></div>
+        <p class="plan-desc">A concept for connected homes, streaming, and gaming.</p>
+      </div>
+      <ul class="plan-features">
+        <li>10+ connected devices (concept)</li>
+        <li>4K streaming on multiple screens (concept)</li>
+        <li>Low-latency gaming and priority support ideas</li>
+      </ul>
+      <div class="plan-footer">High-power Wi-Fi router idea; details to be confirmed</div>
+    </article>
+
+    <article class="plan-card">
+      <div class="plan-top">
+        <span class="plan-tier">Business Fiber · draft</span>
+        <div class="plan-speed">1,000 <span>Mbps</span></div>
+        <p class="plan-desc">A concept for businesses and high-demand users.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Symmetrical gigabit connection concept</li>
+        <li>Static IP option to explore</li>
+        <li>99.9% uptime SLA idea (unconfirmed)</li>
+        <li>24/7 account manager idea</li>
+      </ul>
+      <div class="plan-footer">All business support and SLA terms to be confirmed</div>
+    </article>
   </div>
 </section>
 
