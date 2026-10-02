@@ -1,0 +1,1404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Internet Service — Join the Waitlist (Sample 2: Middle Spotlight Card)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;850&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --bg: #f4f7fc;
+  --surface: #ffffff;
+  --text: #0b1324;
+  --muted: #526077;
+  --border: #dbe4ef;
+  --brand: #0b7cff;
+  --brand-glow: #00c6ff;
+  --brand2: #18c7a1;
+  --purple: #7657ff;
+  --cyan: #00f2fe;
+  --shadow: 0 24px 70px rgba(6, 19, 39, 0.10);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', Inter, Arial, sans-serif;
+
+  background:
+    radial-gradient(circle at 10% 6%, rgba(11,124,255,.16) 0 150px, transparent 320px),
+    radial-gradient(circle at 90% 12%, rgba(24,199,161,.16) 0 170px, transparent 340px),
+    radial-gradient(circle at 75% 45%, rgba(118,87,255,.12) 0 180px, transparent 320px),
+    radial-gradient(circle at 12% 70%, rgba(0,242,254,.12) 0 160px, transparent 300px),
+    var(--bg);
+}
+
+.app {
+  min-height: 100vh;
+}
+
+/* =========================
+   PREVIEW SWITCHER BAR
+========================= */
+
+.preview-switcher {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(11, 19, 36, 0.94);
+  backdrop-filter: blur(12px);
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.preview-pill {
+  display: inline-flex;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 3px;
+  border-radius: 30px;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.preview-pill a {
+  color: #94a3b8;
+  text-decoration: none;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+
+.preview-pill a.active {
+  background: linear-gradient(135deg, var(--brand), var(--brand-glow));
+  color: #ffffff;
+  box-shadow: 0 2px 10px rgba(11, 124, 255, 0.4);
+}
+
+.preview-pill a:hover:not(.active) {
+  color: #ffffff;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1160px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 850;
+  font-size: 21px;
+  letter-spacing: -.04em;
+}
+
+.mark {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--brand),
+      var(--brand2)
+    );
+  display: grid;
+  place-items: center;
+  color: white;
+  box-shadow: 0 4px 14px rgba(11, 124, 255, 0.35);
+  font-size: 17px;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navlinks a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.navlinks a.pill {
+  background: #0b1324;
+  color: white;
+  padding: 9px 18px;
+  border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(11, 19, 36, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.navlinks a.pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(11, 19, 36, 0.3);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  max-width: 1160px;
+  margin: 30px auto 70px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1.12fr .88fr;
+  gap: 48px;
+  align-items: start;
+  position: relative;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e1f0ff;
+  border: 1px solid #b9dcfe;
+  color: #075fc7;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: var(--brand2);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(24,199,161,.18);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.5; }
+}
+
+.hero h1 {
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  margin: 20px 0 16px;
+  max-width: 680px;
+  font-weight: 850;
+}
+
+.hero h1 span {
+  background:
+    linear-gradient(
+      100deg,
+      #0b7cff 0%,
+      #00c6ff 40%,
+      #18c7a1 75%,
+      #7657ff 100%
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* BROAD, ATTRACTIVE CYBER FIBER IMAGE RIGHT BENEATH HEADLINE */
+.hero-fiber-banner {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 14px 0 24px;
+  border: 1px solid rgba(11, 124, 255, 0.3);
+  box-shadow:
+    0 18px 45px rgba(11, 124, 255, 0.18),
+    0 0 35px rgba(0, 242, 254, 0.16);
+  background: #090d16;
+  aspect-ratio: 16 / 9;
+}
+
+.hero-fiber-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-fiber-banner:hover img {
+  transform: scale(1.03);
+}
+
+.fiber-overlay-info {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
+}
+
+.fiber-pill {
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(10px);
+  color: #00f2fe;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 242, 254, 0.35);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.fiber-speed {
+  background: rgba(9, 13, 22, 0.85);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 580px;
+  margin: 0 0 28px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background:
+    linear-gradient(
+      100deg,
+      #0b7cff 0%,
+      #00c6ff 50%,
+      #0862d4 100%
+    );
+  color: white;
+  padding: 16px 26px;
+  border-radius: 14px;
+  font-weight: 850;
+  font-size: 15px;
+  text-decoration: none;
+  box-shadow: 0 14px 30px rgba(11, 124, 255, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: .02em;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(11, 124, 255, 0.45);
+}
+
+.hero-cta-arrow {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.stats {
+  display: flex;
+  gap: 22px;
+  margin-top: 36px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px 22px;
+  border-radius: 18px;
+  min-width: 170px;
+  box-shadow: 0 10px 30px rgba(6, 19, 39, 0.05);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.stat:hover {
+  transform: translateY(-2px);
+}
+
+.stat:first-child {
+  border-left: 4px solid var(--brand);
+}
+
+.stat:last-child {
+  border-left: 4px solid var(--brand2);
+}
+
+.stat strong {
+  font-size: 22px;
+  display: block;
+  letter-spacing: -.03em;
+  font-weight: 850;
+  margin-bottom: 3px;
+}
+
+.stat:first-child strong {
+  color: var(--brand);
+}
+
+.stat:last-child strong {
+  color: #10b981;
+}
+
+.stat small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  display: block;
+}
+
+/* =========================
+   WAITLIST FORM CARD
+========================= */
+
+.card {
+  background: var(--surface);
+  border: 1px solid rgba(11, 124, 255, 0.2);
+  border-radius: 28px;
+  padding: 34px;
+  box-shadow:
+    0 24px 70px rgba(6, 19, 39, 0.10),
+    0 0 35px rgba(11, 124, 255, 0.06);
+  position: sticky;
+  top: 90px;
+}
+
+.card h2 {
+  font-size: 26px;
+  letter-spacing: -.03em;
+  margin: 0 0 6px;
+  font-weight: 850;
+}
+
+.card p.sub {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 24px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #27364b;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+  outline: none;
+  font-family: inherit;
+  color: var(--text);
+  transition: all 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--brand);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(11, 124, 255, 0.12);
+}
+
+.check {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin: 18px 0 20px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+  cursor: pointer;
+}
+
+.check input {
+  margin-top: 3px;
+  accent-color: var(--brand);
+  width: 16px;
+  height: 16px;
+}
+
+.form-status {
+  display: none;
+  padding: 12px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 600;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+button[type="submit"] {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  height: 52px;
+  background:
+    linear-gradient(
+      100deg,
+      #0b7cff 0%,
+      #00c6ff 50%,
+      #0862d4 100%
+    );
+  color: white;
+  font-weight: 850;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(11, 124, 255, 0.3);
+  transition: all 0.2s;
+  letter-spacing: .02em;
+}
+
+button[type="submit"]:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(11, 124, 255, 0.4);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.success {
+  display: none;
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.success .icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(24,199,161,.14);
+  color: var(--brand2);
+  display: grid;
+  place-items: center;
+  font-size: 30px;
+  margin: 0 auto 16px;
+  border: 2px solid var(--brand2);
+}
+
+.success h3 {
+  font-size: 24px;
+  font-weight: 850;
+  margin: 0 0 8px;
+}
+
+.success p {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+#again {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ===================================================
+   SAMPLE B: WARM LIFESTYLE IMAGE AS MIDDLE SPOTLIGHT CARD
+=================================================== */
+
+.middle-lifestyle-section {
+  max-width: 1160px;
+  margin: 0 auto 60px;
+  padding: 0 24px;
+}
+
+.middle-lifestyle-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(6, 19, 39, 0.08);
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+
+@media(max-width: 850px) {
+  .middle-lifestyle-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+.middle-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  background: #0f172a;
+}
+
+.middle-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.middle-img-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: rgba(11, 19, 36, 0.85);
+  backdrop-filter: blur(10px);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.middle-content {
+  padding: 38px;
+}
+
+.middle-kicker {
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.middle-content h3 {
+  font-size: 26px;
+  font-weight: 850;
+  letter-spacing: -.03em;
+  margin: 0 0 12px;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+.middle-content p {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ===================================================
+   WHY SECTION (STANDARD DARK BLUE BACKGROUND)
+=================================================== */
+
+.coverage {
+  max-width: 1160px;
+  margin: 0 auto 80px;
+  padding: 0 24px;
+}
+
+.coveragebox {
+  background:
+    linear-gradient(
+      135deg,
+      #0b1729,
+      #102b4c
+    );
+  color: white;
+  border-radius: 30px;
+  padding: 42px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(6, 19, 39, 0.12);
+}
+
+.coverage-intro {
+  max-width: 720px;
+  margin-bottom: 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.coverage-kicker {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #78ead1;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.coverage h2 {
+  font-size: clamp(30px, 4vw, 42px);
+  letter-spacing: -.05em;
+  line-height: 1.05;
+  margin: 0 0 12px;
+  font-weight: 850;
+}
+
+.coverage p {
+  color: #b9c8da;
+  line-height: 1.6;
+  font-size: 16px;
+  margin: 0;
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+
+.benefit-card {
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 20px;
+  background: rgba(255,255,255,.07);
+  backdrop-filter: blur(8px);
+}
+
+.benefit-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 20px;
+  place-items: center;
+  border: 1px solid rgba(120,234,209,.3);
+  border-radius: 12px;
+  background: rgba(24,199,161,.13);
+  color: #78ead1;
+  font-size: 18px;
+  font-weight: 850;
+}
+
+.benefit-card h3 {
+  margin: 0 0 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -.025em;
+}
+
+.benefit-card p {
+  color: #b9c8da;
+  font-size: 14px;
+}
+
+.demand-footer {
+  display: grid;
+  grid-template-columns: minmax(220px, .8fr) 1.2fr;
+  gap: 28px;
+  align-items: center;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,.14);
+  position: relative;
+  z-index: 2;
+}
+
+.demand-footer h3 {
+  margin: 0 0 6px;
+  color: white;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.demand-footer p {
+  font-size: 13px;
+  color: #b9c8da;
+}
+
+.areas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-content: center;
+}
+
+.area {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+/* ===================================================
+   SPEED PLANS TAB / SECTION AT THE BOTTOM
+=================================================== */
+
+.plans-section {
+  max-width: 1160px;
+  margin: 0 auto 90px;
+  padding: 0 24px;
+}
+
+.plans-intro {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 38px;
+}
+
+.plans-kicker {
+  display: inline-block;
+  color: var(--brand);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  background: #e1f0ff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid #b9dcfe;
+}
+
+.plans-intro h2 {
+  font-size: clamp(26px, 3.5vw, 38px);
+  letter-spacing: -.04em;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  color: var(--text);
+  font-weight: 850;
+}
+
+.plans-intro p {
+  color: var(--muted);
+  font-size: 16px;
+  margin: 0;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+@media (max-width: 860px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.plan-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 12px 35px rgba(6, 19, 39, 0.05);
+  position: relative;
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.plan-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(11, 124, 255, 0.35);
+  box-shadow: 0 18px 45px rgba(6, 19, 39, 0.08);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--brand);
+  box-shadow: 0 20px 55px rgba(11, 124, 255, 0.14);
+}
+
+.plan-featured-badge {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  background: linear-gradient(135deg, var(--brand), #00c6ff);
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 5px 14px;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(11, 124, 255, 0.4);
+}
+
+.plan-top {
+  margin-bottom: 22px;
+}
+
+.plan-tier {
+  font-size: 13px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--muted);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.plan-speed {
+  font-size: 40px;
+  font-weight: 850;
+  letter-spacing: -.04em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.plan-speed span {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand);
+}
+
+.plan-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.plan-features li {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.plan-features li::before {
+  content: "✓";
+  color: var(--brand2);
+  font-weight: 850;
+  font-size: 14px;
+}
+
+.plan-footer {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--brand);
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 24px;
+  color: var(--muted);
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.foot {
+  max-width: 1160px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* =========================
+   MOBILE RESPONSIVENESS
+========================= */
+
+@media(max-width:850px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .benefit-grid {
+    grid-template-columns: 1fr;
+  }
+  .demand-footer {
+    grid-template-columns: 1fr;
+  }
+  .stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stat {
+    width: 100%;
+  }
+  .preview-switcher {
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+  <!-- Preview Switcher Bar -->
+  <div class="preview-switcher">
+    <div style="font-weight: 700; display:flex; align-items:center; gap:8px;">
+      <span style="color:#00f2fe;">✨ Design Mode:</span>
+      <span>Sample 2 (Cyber Fiber under Title + Warm Lifestyle Middle Spotlight Card)</span>
+    </div>
+    <div class="preview-pill">
+      <a href="index.html">Sample 1: Backdrop Behind Message</a>
+      <a href="sample-b-middle-spotlight.html" class="active">Sample 2: Middle Spotlight Card</a>
+    </div>
+  </div>
+
+<div class="app">
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="logo">
+    <div class="mark">⌁</div>
+    Internet Service
+  </div>
+
+  <div class="navlinks">
+    <a href="#plans">Plans</a>
+    <a href="#why">Why Us</a>
+    <a class="pill" href="#waitlist-form">Join now</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="waitlist">
+
+  <div>
+    <div class="eyebrow">
+      <span class="dot"></span>
+      Coming soon
+    </div>
+
+    <h1>
+      Better internet is
+      <span>
+        on the way.
+      </span>
+    </h1>
+
+    <!-- BROAD, ATTRACTIVE CYBER FIBER IMAGE RIGHT BENEATH 'BETTER INTERNET IS ON THE WAY' -->
+    <div class="hero-fiber-banner">
+      <img src="assets/fiber-hero.jpg" alt="Pure Optical Gigabit Fiber Internet" />
+      <div class="fiber-overlay-info">
+        <span class="fiber-pill">⚡ Pure Optical Fiber</span>
+        <span class="fiber-speed">Up to 1,000 Mbps</span>
+      </div>
+    </div>
+
+    <p>
+      Tired of slow, unreliable, or overpriced internet? Get ready for a better connection for working from home, streaming, gaming, business, or school. Join us and help bring better internet to your area.
+    </p>
+
+    <a class="hero-cta" href="#waitlist-form">
+      <span>JOIN THE WAITLIST NOW!!!</span>
+      <span class="hero-cta-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <div class="stats">
+      <div class="stat">
+        <strong>Fast</strong>
+        <small>Built for everyday connectivity</small>
+      </div>
+
+      <div class="stat">
+        <strong>Reliable</strong>
+        <small>Connection you can count on</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAITLIST FORM -->
+  <div class="card" id="waitlist-form">
+    <div id="formView">
+      <h2>Join the waitlist</h2>
+      <p class="sub">Tell us where you are and what matters most to you. We'll keep you updated about availability.</p>
+
+      <form id="waitForm">
+        <!-- NAME + PHONE -->
+        <div class="row">
+          <div class="field">
+            <label>Full name</label>
+            <input id="name" required placeholder="Enter your full name">
+          </div>
+
+          <div class="field">
+            <label>Phone number</label>
+            <input id="phone" required placeholder="Enter your phone number">
+          </div>
+        </div>
+
+        <!-- EMAIL + AREA -->
+        <div class="row">
+          <div class="field">
+            <label>Email address</label>
+            <input id="email" type="email" required placeholder="Enter your email address">
+          </div>
+
+          <div class="field">
+            <label>Your area</label>
+            <input id="area" required placeholder="Enter your area">
+          </div>
+        </div>
+
+        <!-- CUSTOMER TYPE + PLAN -->
+        <div class="row">
+          <div class="field">
+            <label>Customer type</label>
+            <select id="type">
+              <option>Individual / Home</option>
+              <option>Business</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Preferred plan</label>
+            <select id="plan">
+              <option>Not sure yet</option>
+              <option>Home plan</option>
+              <option>Business plan</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- CUSTOMER PRIORITY -->
+        <div class="field">
+          <label>What matters to you?</label>
+          <select id="priority" required>
+            <option value="">Select what matters most</option>
+            <option>Fast internet</option>
+            <option>Affordable pricing</option>
+            <option>Reliable connection</option>
+            <option>Unlimited data</option>
+            <option>Business internet</option>
+            <option>Good customer service</option>
+            <option>Wide coverage</option>
+            <option>Flexible plans</option>
+            <option>Easy installation</option>
+          </select>
+        </div>
+
+        <!-- LANDMARK -->
+        <div class="field">
+          <label>Nearest landmark <span style="color:var(--muted);font-weight:500">(optional)</span></label>
+          <input id="landmark" placeholder="Enter a nearby landmark">
+        </div>
+
+        <!-- CONSENT -->
+        <label class="check">
+          <input id="consent" type="checkbox" required>
+          <span>I agree to be contacted about internet service availability and launch updates.</span>
+        </label>
+
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+        <button id="submitButton" type="submit">
+          JOIN THE WAITLIST NOW!!!
+        </button>
+      </form>
+    </div>
+
+    <!-- SUCCESS MESSAGE -->
+    <div class="success" id="success">
+      <div class="icon">✓</div>
+      <h3>You're on the list!</h3>
+      <p>Thanks for signing up. We've saved your details and will let you know when the service becomes available in your area.</p>
+      <button type="button" id="again">Add another person</button>
+    </div>
+  </div>
+
+</section>
+
+<!-- MIDDLE SPOTLIGHT CARD: WARM LIFESTYLE IMAGE -->
+<section class="middle-lifestyle-section">
+  <div class="middle-lifestyle-card">
+    <div class="middle-img-wrap">
+      <img src="assets/lifestyle-hero.jpg" alt="Connected Home Lifestyle" />
+      <div class="middle-img-badge">
+        <span>📶 Seamless Connected Living</span>
+      </div>
+    </div>
+    <div class="middle-content">
+      <span class="middle-kicker">Built For Modern Living</span>
+      <h3>Work from home & stream in 4K with zero buffering</h3>
+      <p>Enjoy continuous, reliable fiber connectivity for video conferencing, online learning, smart devices, and family entertainment simultaneously.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WAITLIST BENEFITS AND DEMAND SECTION -->
+<section class="coverage" id="why">
+  <div class="coveragebox">
+
+    <div class="coverage-intro">
+      <span class="coverage-kicker">What's in it for me?</span>
+      <h2>Get in early. Help shape what comes next.</h2>
+      <p>Joining the waitlist keeps you in the loop and helps us understand where better internet is needed most.</p>
+    </div>
+
+    <div class="benefit-grid">
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">01</div>
+        <h3>Be first in line</h3>
+        <p>Be among the first to know when the service goes live and get ready to connect.</p>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">02</div>
+        <h3>Help choose where we expand</h3>
+        <p>Your signup helps show where demand is strongest and informs which areas we serve next.</p>
+      </article>
+
+      <article class="benefit-card">
+        <div class="benefit-icon" aria-hidden="true">03</div>
+        <h3>Know when your area is ready</h3>
+        <p>We'll notify you as soon as your address or area becomes eligible for service.</p>
+      </article>
+    </div>
+
+    <div class="demand-footer">
+      <div>
+        <h3>What matters most to you?</h3>
+        <p>Your answers help us plan around real customer needs.</p>
+      </div>
+
+      <div class="areas" aria-label="Things customers value">
+        <span class="area">Fast internet</span>
+        <span class="area">Affordable pricing</span>
+        <span class="area">Reliable connection</span>
+        <span class="area">Unlimited data</span>
+        <span class="area">Business internet</span>
+        <span class="area">Good customer service</span>
+        <span class="area">Wide coverage</span>
+        <span class="area">Flexible plans</span>
+        <span class="area">Easy installation</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPEED PLANS SECTION (PRESERVED FROM CONCEPT 2) -->
+<section class="plans-section" id="plans">
+  <div class="plans-intro">
+    <span class="plans-kicker">Transparent & Unmetered</span>
+    <h2>Choose The Right Speed For Your Lifestyle</h2>
+    <p>Transparent, unthrottled, unmetered fiber internet.</p>
+  </div>
+
+  <div class="plans-grid">
+    <div class="plan-card">
+      <div class="plan-top">
+        <span class="plan-tier">Home Starter</span>
+        <div class="plan-speed">100 <span>Mbps</span></div>
+        <p class="plan-desc">Ideal for small apartments and everyday connectivity.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Buffer-free HD streaming</li>
+        <li>Smooth video conferencing</li>
+        <li>Unlimited monthly data</li>
+        <li>Standard Wi-Fi router included</li>
+      </ul>
+      <div class="plan-footer">No setup hidden fees</div>
+    </div>
+
+    <div class="plan-card featured">
+      <div class="plan-featured-badge">Most Popular</div>
+      <div class="plan-top">
+        <span class="plan-tier">Family & Creator</span>
+        <div class="plan-speed">300 <span>Mbps</span></div>
+        <p class="plan-desc">Built for multiple devices, 4K streaming, and gaming.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Supports 10+ devices simultaneously</li>
+        <li>4K Ultra-HD on multiple screens</li>
+        <li>Low-latency online gaming</li>
+        <li>Priority technical support</li>
+      </ul>
+      <div class="plan-footer">Free high-power Wi-Fi router</div>
+    </div>
+
+    <div class="plan-card">
+      <div class="plan-top">
+        <span class="plan-tier">Business Fiber</span>
+        <div class="plan-speed">1,000 <span>Mbps</span></div>
+        <p class="plan-desc">Dedicated gigabit connection for businesses & heavy users.</p>
+      </div>
+      <ul class="plan-features">
+        <li>Dedicated symmetrical gigabit link</li>
+        <li>Static IP address available</li>
+        <li>99.9% uptime SLA guarantee</li>
+        <li>24/7 dedicated account manager</li>
+      </ul>
+      <div class="plan-footer">Enterprise SLA included</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <span>© 2026 Internet Service. Waitlist.</span>
+    <span>Better internet. Built around your needs.</span>
+  </div>
+</footer>
+
+</div>
+
+<!-- SUPABASE INTEGRATION SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="./supabase-config.js"></script>
+<script>
+
+const form = document.getElementById("waitForm");
+const formView = document.getElementById("formView");
+const success = document.getElementById("success");
+const formStatus = document.getElementById("formStatus");
+const submitButton = document.getElementById("submitButton");
+
+const config = window.SUPABASE_CONFIG || {};
+const publicKey = config.publishableKey || config.anonKey;
+const supabaseClient =
+  window.supabase && config.url && publicKey
+    ? window.supabase.createClient(config.url, publicKey)
+    : null;
+
+function showFormError(message) {
+  formStatus.textContent = message;
+  formStatus.style.display = "block";
+}
+
+form.addEventListener("submit", async function(event) {
+  event.preventDefault();
+  formStatus.style.display = "none";
+
+  if (!supabaseClient) {
+    showFormError("The waitlist is not connected yet. Please try again later.");
+    return;
+  }
+
+  const submission = {
+    full_name: document.getElementById("name").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim().toLowerCase(),
+    area: document.getElementById("area").value.trim(),
+    customer_type: document.getElementById("type").value,
+    preferred_plan: document.getElementById("plan").value,
+    priority: document.getElementById("priority").value,
+    landmark: document.getElementById("landmark").value.trim() || null,
+    consent: document.getElementById("consent").checked,
+  };
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting…";
+
+  try {
+    const { error } = await supabaseClient
+      .from("waitlist_submissions")
+      .insert(submission);
+
+    if (error) throw error;
+
+    form.reset();
+    formView.style.display = "none";
+    success.style.display = "block";
+  } catch (error) {
+    console.error("Waitlist submission failed:", error);
+    showFormError("We couldn't save your signup. Check your connection and try again.");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "JOIN THE WAITLIST NOW!!!";
+  }
+});
+
+document.getElementById("again").addEventListener("click", function() {
+  form.reset();
+  formStatus.style.display = "none";
+  success.style.display = "none";
+  formView.style.display = "block";
+});
+
+</script>
+
+</body>
+</html>
