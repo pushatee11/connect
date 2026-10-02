@@ -5,18 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Internet Service — Join the Waitlist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;850&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 :root {
-  --bg: #f5f7fb;
+  --bg: #f4f7fc;
   --surface: #ffffff;
   --text: #0b1324;
-  --muted: #5d6879;
-  --border: #dfe5ee;
+  --muted: #526077;
+  --border: #dbe4ef;
   --brand: #0b7cff;
+  --brand-glow: #00c6ff;
   --brand2: #18c7a1;
   --purple: #7657ff;
+  --cyan: #00f2fe;
   --shadow: 0 24px 70px rgba(6, 19, 39, 0.10);
 }
 
@@ -27,24 +32,13 @@
 body {
   margin: 0;
   color: var(--text);
-  font-family: Inter, Arial, sans-serif;
+  font-family: 'Plus Jakarta Sans', Inter, Arial, sans-serif;
 
   background:
-    radial-gradient(
-      circle at 8% 8%,
-      rgba(11,124,255,.12) 0 130px,
-      transparent 280px
-    ),
-    radial-gradient(
-      circle at 92% 18%,
-      rgba(24,199,161,.12) 0 150px,
-      transparent 310px
-    ),
-    radial-gradient(
-      circle at 78% 78%,
-      rgba(118,87,255,.08) 0 120px,
-      transparent 280px
-    ),
+    radial-gradient(circle at 10% 6%, rgba(11,124,255,.16) 0 150px, transparent 320px),
+    radial-gradient(circle at 90% 12%, rgba(24,199,161,.16) 0 170px, transparent 340px),
+    radial-gradient(circle at 75% 45%, rgba(118,87,255,.12) 0 180px, transparent 320px),
+    radial-gradient(circle at 12% 70%, rgba(0,242,254,.12) 0 160px, transparent 300px),
     var(--bg);
 }
 
@@ -52,90 +46,72 @@ body {
   min-height: 100vh;
 }
 
-
 /* =========================
    NAVIGATION
 ========================= */
 
 nav {
   height: 76px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   max-width: 1160px;
   margin: auto;
-
   padding: 0 24px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-
   gap: 10px;
-
   font-weight: 850;
   font-size: 21px;
   letter-spacing: -.04em;
 }
 
 .mark {
-  width: 34px;
-  height: 34px;
-
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
-
   background:
     linear-gradient(
       135deg,
       var(--brand),
       var(--brand2)
     );
-
   display: grid;
   place-items: center;
-
   color: white;
+  box-shadow: 0 4px 14px rgba(11, 124, 255, 0.35);
   font-size: 17px;
-
-  box-shadow:
-    0 8px 20px rgba(11,124,255,.25);
 }
 
 .navlinks {
   display: flex;
   align-items: center;
-  gap: 26px;
+  gap: 20px;
 }
 
 .navlinks a {
-  color: var(--muted);
   text-decoration: none;
-
+  color: var(--text);
+  font-weight: 700;
   font-size: 14px;
-  font-weight: 650;
 }
 
-.pill {
-  border: 1px solid rgba(11,124,255,.18);
-
-  padding: 10px 15px;
-
+.navlinks a.pill {
+  background: #0b1324;
+  color: white;
+  padding: 9px 18px;
   border-radius: 999px;
-
-  color: #075fc7 !important;
-
-  background: #e7f2ff;
-  transition: background .2s ease, transform .2s ease;
+  box-shadow: 0 6px 18px rgba(11, 19, 36, 0.2);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.pill:hover {
-  background: #d9ebff;
+.navlinks a.pill:hover {
   transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(11, 19, 36, 0.3);
 }
-
 
 /* =========================
    HERO
@@ -143,146 +119,128 @@ nav {
 
 .hero {
   max-width: 1160px;
-  margin: auto;
-
-  padding: 58px 24px 82px;
-
+  margin: 30px auto 80px;
+  padding: 0 24px;
   display: grid;
-  grid-template-columns: 1.06fr .94fr;
-
-  gap: 72px;
-
-  align-items: center;
-
+  grid-template-columns: 1.12fr .88fr;
+  gap: 48px;
+  align-items: start;
   position: relative;
-}
-
-.hero:before {
-  content: "";
-
-  position: absolute;
-
-  width: 420px;
-  height: 420px;
-
-  left: -180px;
-  top: 40px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(11,124,255,.07),
-      rgba(24,199,161,.04)
-    );
-
-  filter: blur(2px);
-
-  pointer-events: none;
 }
 
 .eyebrow {
   display: inline-flex;
-
   align-items: center;
-
   gap: 8px;
-
-  background: #e7f2ff;
-
-  border: 1px solid #cfe4ff;
-
+  background: #e1f0ff;
+  border: 1px solid #b9dcfe;
   color: #075fc7;
-
   border-radius: 999px;
-
-  padding: 8px 12px;
-
+  padding: 8px 14px;
   font-size: 12px;
   font-weight: 800;
+  letter-spacing: .02em;
 }
 
 .dot {
-  width: 7px;
-  height: 7px;
-
+  width: 8px;
+  height: 8px;
   background: var(--brand2);
-
   border-radius: 50%;
+  box-shadow: 0 0 0 5px rgba(24,199,161,.18);
+  animation: pulseDot 2s infinite;
+}
 
-  box-shadow:
-    0 0 0 5px rgba(24,199,161,.12);
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.5; }
 }
 
 .hero h1 {
-  font-size: clamp(45px, 6vw, 76px);
-
-  line-height: .98;
-
-  letter-spacing: -.065em;
-
-  margin: 22px 0 20px;
-
-  max-width: 700px;
+  font-size: clamp(42px, 5.2vw, 68px);
+  line-height: 1.02;
+  letter-spacing: -.055em;
+  margin: 20px 0 16px;
+  max-width: 680px;
+  font-weight: 850;
 }
 
 .hero h1 span {
   background:
     linear-gradient(
       100deg,
-      var(--brand),
-      var(--brand2),
-      var(--purple)
+      #0b7cff 0%,
+      #00c6ff 40%,
+      #18c7a1 75%,
+      #7657ff 100%
     );
-
   -webkit-background-clip: text;
   background-clip: text;
-
   color: transparent;
 }
 
-.hero p {
-  font-size: 18px;
-
-  line-height: 1.65;
-
-  color: var(--muted);
-
+/* BROAD, ATTRACTIVE CYBER FIBER IMAGE RIGHT BENEATH HEADLINE */
+.hero-fiber-banner {
+  position: relative;
+  width: 100%;
   max-width: 600px;
+  border-radius: 22px;
+  overflow: hidden;
+  margin: 14px 0 24px;
+  border: 1px solid rgba(11, 124, 255, 0.3);
+  box-shadow:
+    0 18px 45px rgba(11, 124, 255, 0.18),
+    0 0 35px rgba(0, 242, 254, 0.16);
+  background: #090d16;
+  aspect-ratio: 16 / 9;
+}
 
-  margin: 0 0 30px;
+.hero-fiber-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.hero-fiber-banner:hover img {
+  transform: scale(1.03);
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--muted);
+  max-width: 580px;
+  margin: 0 0 28px;
 }
 
 .hero-cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  min-height: 54px;
-  margin: 0 0 4px;
-  padding: 0 20px;
-  border-radius: 14px;
-  background: linear-gradient(100deg, var(--brand), #1169e8 58%, #4a76f2);
-  box-shadow: 0 14px 28px rgba(11,124,255,.22);
+  gap: 12px;
+  background:
+    linear-gradient(
+      100deg,
+      #0b7cff 0%,
+      #00c6ff 50%,
+      #0862d4 100%
+    );
   color: white;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: .025em;
+  padding: 16px 26px;
+  border-radius: 14px;
+  font-weight: 850;
+  font-size: 15px;
   text-decoration: none;
-  transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+  box-shadow: 0 14px 30px rgba(11, 124, 255, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: .02em;
 }
 
 .hero-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 18px 32px rgba(11,124,255,.28);
-  filter: brightness(1.04);
-}
-
-.hero-cta:focus-visible,
-.pill:focus-visible {
-  outline: 3px solid rgba(11,124,255,.35);
-  outline-offset: 3px;
+  box-shadow: 0 18px 40px rgba(11, 124, 255, 0.45);
 }
 
 .hero-cta-arrow {
@@ -292,374 +250,352 @@ nav {
 
 .stats {
   display: flex;
+  gap: 22px;
+  margin-top: 36px;
+}
 
-  gap: 28px;
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 18px 22px;
+  border-radius: 18px;
+  min-width: 170px;
+  box-shadow: 0 10px 30px rgba(6, 19, 39, 0.05);
+  transition: transform 0.2s, border-color 0.2s;
+}
 
-  margin-top: 28px;
+.stat:hover {
+  transform: translateY(-2px);
+}
+
+.stat:first-child {
+  border-left: 4px solid var(--brand);
+}
+
+.stat:last-child {
+  border-left: 4px solid var(--brand2);
 }
 
 .stat strong {
+  font-size: 22px;
   display: block;
+  letter-spacing: -.03em;
+  font-weight: 850;
+  margin-bottom: 3px;
+}
 
-  font-size: 20px;
+.stat:first-child strong {
+  color: var(--brand);
+}
+
+.stat:last-child strong {
+  color: #10b981;
 }
 
 .stat small {
   color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+  display: block;
 }
 
-
 /* =========================
-   FORM CARD
+   WAITLIST FORM CARD
 ========================= */
 
 .card {
-  background:
-    rgba(255,255,255,.94);
-
-  border: 1px solid var(--border);
-
+  background: var(--surface);
+  border: 1px solid rgba(11, 124, 255, 0.2);
   border-radius: 28px;
-
-  padding: 30px;
-
-  box-shadow: var(--shadow);
-
-  position: relative;
-
-  overflow: hidden;
-}
-
-.card:before {
-  content: "";
-
-  position: absolute;
-
-  width: 180px;
-  height: 180px;
-
-  right: -100px;
-  top: -100px;
-
-  border-radius: 50%;
-
-  background:
-    rgba(24,199,161,.10);
+  padding: 34px;
+  box-shadow:
+    0 24px 70px rgba(6, 19, 39, 0.10),
+    0 0 35px rgba(11, 124, 255, 0.06);
+  position: sticky;
+  top: 90px;
 }
 
 .card h2 {
-  margin: 0 0 7px;
-
-  font-size: 25px;
-
-  letter-spacing: -.035em;
+  font-size: 26px;
+  letter-spacing: -.03em;
+  margin: 0 0 6px;
+  font-weight: 850;
 }
 
-.card .sub {
-  margin: 0 0 22px;
-
+.card p.sub {
   color: var(--muted);
-
   font-size: 14px;
-
   line-height: 1.5;
+  margin: 0 0 24px;
 }
 
-
-/* =========================
-   FORM
-========================= */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
 
 .field {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .field label {
   display: block;
-
-  font-size: 12px;
-
-  font-weight: 800;
-
-  margin-bottom: 7px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #27364b;
+  margin-bottom: 6px;
 }
 
 .field input,
 .field select {
   width: 100%;
-
-  height: 46px;
-
   border: 1px solid var(--border);
-
-  border-radius: 11px;
-
-  background: white;
-
-  color: var(--text);
-
-  padding: 0 13px;
-
-  font: inherit;
-
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
   outline: none;
+  font-family: inherit;
+  color: var(--text);
+  transition: all 0.2s;
 }
 
 .field input:focus,
 .field select:focus {
   border-color: var(--brand);
-
-  box-shadow:
-    0 0 0 3px rgba(11,124,255,.10);
-}
-
-.row {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 12px;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(11, 124, 255, 0.12);
 }
 
 .check {
   display: flex;
-
-  gap: 9px;
-
+  gap: 10px;
   align-items: flex-start;
-
+  margin: 18px 0 20px;
+  font-size: 13px;
   color: var(--muted);
-
-  font-size: 11px;
-
-  line-height: 1.4;
-
-  margin: 13px 0 18px;
+  line-height: 1.45;
+  cursor: pointer;
 }
 
 .check input {
-  margin-top: 2px;
-
+  margin-top: 3px;
   accent-color: var(--brand);
+  width: 16px;
+  height: 16px;
 }
 
 .form-status {
-  margin: 0 0 14px;
-
-  padding: 11px 13px;
-
-  border: 1px solid #ffd4ce;
+  padding: 12px 14px;
   border-radius: 10px;
-
-  background: #fff0ee;
-
-  color: #9f1c16;
-
   font-size: 13px;
-
-  line-height: 1.45;
+  margin-bottom: 16px;
+  text-align: center;
+  font-weight: 600;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
 }
 
-button {
+button[type="submit"] {
   width: 100%;
-
   border: 0;
-
-  border-radius: 12px;
-
-  height: 49px;
-
+  border-radius: 14px;
+  height: 52px;
   background:
     linear-gradient(
       100deg,
-      var(--brand),
-      #1169e8
+      #0b7cff 0%,
+      #00c6ff 50%,
+      #0862d4 100%
     );
-
   color: white;
-
   font-weight: 850;
-
-  font-size: 14px;
-
+  font-size: 15px;
   cursor: pointer;
-
-  box-shadow:
-    0 12px 24px rgba(11,124,255,.17);
+  box-shadow: 0 14px 28px rgba(11, 124, 255, 0.3);
+  transition: all 0.2s;
+  letter-spacing: .02em;
 }
 
-button:hover {
+button[type="submit"]:hover {
   filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(11, 124, 255, 0.4);
 }
 
-button:disabled {
+button[type="submit"]:disabled {
+  opacity: 0.65;
   cursor: wait;
-
-  opacity: .75;
 }
-
-
-/* =========================
-   SUCCESS
-========================= */
 
 .success {
   display: none;
-
   text-align: center;
-
-  padding: 30px 5px;
+  padding: 30px 10px;
 }
 
 .success .icon {
-  width: 60px;
-  height: 60px;
-
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
-
-  background:
-    rgba(24,199,161,.10);
-
+  background: rgba(24,199,161,.14);
   color: var(--brand2);
-
   display: grid;
   place-items: center;
-
-  font-size: 28px;
-
-  margin: 0 auto 15px;
+  font-size: 30px;
+  margin: 0 auto 16px;
+  border: 2px solid var(--brand2);
 }
 
 .success h3 {
   font-size: 24px;
-
-  margin: 0 0 7px;
+  font-weight: 850;
+  margin: 0 0 8px;
 }
 
 .success p {
   color: var(--muted);
-
   line-height: 1.6;
-
   font-size: 14px;
+  margin-bottom: 22px;
 }
 
+#again {
+  background: #f1f5f9;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+}
 
 /* =========================
-   WHY SECTION
+   WAITLIST BENEFITS
 ========================= */
 
 .coverage {
   max-width: 1160px;
-
   margin: 0 auto 80px;
-
   padding: 0 24px;
 }
 
 .coveragebox {
-  background:
-    linear-gradient(
-      135deg,
-      #0b1729,
-      #102b4c
-    );
-
+  position: relative;
   color: white;
-
-  border-radius: 30px;
-
-  padding: 38px;
-
+  border-radius: 32px;
+  padding: 48px 44px;
   display: block;
-
   overflow: hidden;
+  box-shadow:
+    0 25px 70px rgba(6, 19, 39, 0.16),
+    0 0 40px rgba(11, 124, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
-  position: relative;
+  background: linear-gradient(135deg, #0b1729 0%, #102b4c 58%, #0a2137 100%);
 }
 
-.coveragebox:after {
-  content: "";
-
-  position: absolute;
-
-  width: 340px;
-  height: 340px;
-
-  border-radius: 50%;
-
-  right: -100px;
-  top: -150px;
-
-  border: 55px solid rgba(24,199,161,.13);
-  z-index: 0;
-  pointer-events: none;
+.coverage-top {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
 }
 
-.coveragebox > * {
-  position: relative;
-  z-index: 1;
+.coverage-photo {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.2);
+  background: #14283c;
+  box-shadow: 0 18px 40px rgba(0,0,0,.23);
+}
+
+.coverage-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .coverage-intro {
   max-width: 720px;
-  margin-bottom: 28px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
 }
 
 .coverage-kicker {
   display: inline-block;
   margin-bottom: 12px;
-  color: #78ead1;
+  color: #00f2fe;
   font-size: 11px;
   font-weight: 850;
-  letter-spacing: .13em;
+  letter-spacing: .14em;
   text-transform: uppercase;
+  background: rgba(0, 242, 254, 0.12);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 242, 254, 0.3);
 }
 
 .coverage h2 {
-  font-size: clamp(30px, 4vw, 42px);
-
+  font-size: clamp(30px, 4vw, 44px);
   letter-spacing: -.05em;
-
   line-height: 1.05;
-
   margin: 0 0 12px;
+  font-weight: 850;
 }
 
 .coverage p {
-  color: #b9c8da;
-
+  color: #cbd5e1;
   line-height: 1.6;
-
+  font-size: 16px;
   margin: 0;
 }
 
 .benefit-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
 }
 
 .benefit-card {
   min-height: 190px;
-  padding: 22px;
-  border: 1px solid rgba(255,255,255,.13);
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,.18);
   border-radius: 20px;
-  background: rgba(255,255,255,.07);
-  backdrop-filter: blur(8px);
+  background: rgba(11, 23, 42, 0.70);
+  backdrop-filter: blur(12px);
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 242, 254, 0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .benefit-icon {
   display: grid;
-  width: 38px;
-  height: 38px;
-  margin-bottom: 20px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
   place-items: center;
-  border: 1px solid rgba(120,234,209,.3);
+  border: 1px solid rgba(0, 242, 254, 0.4);
   border-radius: 12px;
-  background: rgba(24,199,161,.13);
-  color: #78ead1;
-  font-size: 18px;
+  background: rgba(0, 242, 254, 0.15);
+  color: #00f2fe;
+  font-size: 16px;
   font-weight: 850;
 }
 
@@ -667,12 +603,14 @@ button:disabled {
   margin: 0 0 8px;
   color: white;
   font-size: 18px;
+  font-weight: 800;
   letter-spacing: -.025em;
 }
 
 .benefit-card p {
-  color: #b9c8da;
+  color: #94a3b8;
   font-size: 14px;
+  line-height: 1.5;
 }
 
 .demand-footer {
@@ -680,45 +618,54 @@ button:disabled {
   grid-template-columns: minmax(220px, .8fr) 1.2fr;
   gap: 28px;
   align-items: center;
-  margin-top: 28px;
-  padding-top: 24px;
+  margin-top: 32px;
+  padding-top: 28px;
   border-top: 1px solid rgba(255,255,255,.14);
+  position: relative;
+  z-index: 2;
 }
 
 .demand-footer h3 {
   margin: 0 0 6px;
   color: white;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 800;
   letter-spacing: -.02em;
 }
 
 .demand-footer p {
   font-size: 13px;
+  color: #94a3b8;
 }
 
 .areas {
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 10px;
-
   align-content: center;
 }
 
 .area {
-  border: 1px solid rgba(255,255,255,.14);
-
-  background:
-    rgba(255,255,255,.05);
-
-  padding: 10px 13px;
-
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  padding: 8px 14px;
   border-radius: 999px;
-
   font-size: 12px;
+  font-weight: 700;
+  color: #e2e8f0;
+  transition: all 0.2s;
 }
 
+.area:hover {
+  background: rgba(255,255,255,0.18);
+  transform: translateY(-1px);
+}
+
+.area:nth-child(1) { border-color: rgba(0, 242, 254, 0.4); color: #67e8f9; }
+.area:nth-child(2) { border-color: rgba(24, 199, 161, 0.4); color: #5eead4; }
+.area:nth-child(3) { border-color: rgba(118, 87, 255, 0.4); color: #c4b5fd; }
+.area:nth-child(4) { border-color: rgba(251, 191, 36, 0.4); color: #fde68a; }
 
 /* =========================
    FOOTER
@@ -726,568 +673,273 @@ button:disabled {
 
 footer {
   border-top: 1px solid var(--border);
-
-  padding: 26px 24px;
-
+  padding: 30px 24px;
   color: var(--muted);
-
-  font-size: 12px;
+  font-size: 13px;
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .foot {
   max-width: 1160px;
-
   margin: auto;
-
   display: flex;
-
   justify-content: space-between;
-
   gap: 20px;
 }
 
-
 /* =========================
-   MOBILE
+   MOBILE RESPONSIVENESS
 ========================= */
 
 @media(max-width:850px) {
-
   .hero {
     grid-template-columns: 1fr;
-
     gap: 40px;
-
-    padding-top: 35px;
   }
-
-  .navlinks a:not(.pill) {
-    display: none;
-  }
-
+  .coverage-top,
   .benefit-grid {
     grid-template-columns: 1fr;
   }
-
-  .benefit-card {
-    min-height: 0;
+  .card {
+    position: static;
   }
-
   .demand-footer {
     grid-template-columns: 1fr;
   }
-
+  .stats {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .stat {
+    width: 100%;
+  }
 }
 
-@media(max-width:560px) {
-
+@media (max-width: 560px) {
+  nav {
+    padding: 0 18px;
+  }
+  .navlinks a:not(.pill) {
+    display: none;
+  }
+  .hero,
+  .coverage {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .hero h1 {
+    font-size: clamp(38px, 11vw, 48px);
+  }
+  .hero-cta {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 18px;
+    font-size: 13px;
+  }
   .row {
     grid-template-columns: 1fr;
+    gap: 0;
   }
-
-  .hero h1 {
-    font-size: 48px;
-  }
-
   .card {
-    padding: 22px;
+    padding: 24px 20px;
   }
-
+  .coveragebox {
+    padding: 28px 22px;
+  }
   .foot {
     flex-direction: column;
   }
+}
 
-  .stats {
-    gap: 18px;
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
   }
-
-  .hero-cta {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .coveragebox {
-    padding: 26px 22px;
-  }
-
-  .areas {
-    gap: 8px;
-  }
-
 }
 
 </style>
 </head>
 
-
 <body>
 
 <div class="app">
 
-
 <!-- NAVIGATION -->
-
 <nav>
-
   <div class="logo">
-
-    <div class="mark">
-      ⌁
-    </div>
-
+    <div class="mark">⌁</div>
     Internet Service
-
   </div>
-
 
   <div class="navlinks">
-
-    <a href="#why">
-      Why Us
-    </a>
-
-    <a
-      class="pill"
-      href="#waitlist-form"
-    >
-      Join now
-    </a>
-
+    <a href="#why">Why Us</a>
+    <a class="pill" href="#waitlist-form">Join now</a>
   </div>
-
 </nav>
-
 
 <main>
 
-
 <!-- HERO -->
-
-<section
-  class="hero"
-  id="waitlist"
->
+<section class="hero" id="waitlist">
 
   <div>
-
     <div class="eyebrow">
-
       <span class="dot"></span>
-
       Coming soon
-
     </div>
 
-
     <h1>
-
       Better internet is
       <span>
         on the way.
       </span>
-
     </h1>
 
+    <div class="hero-fiber-banner">
+      <img src="assets/fiber-hero.jpg" alt="Router surrounded by blue and teal light trails" width="1376" height="768" decoding="async">
+    </div>
 
     <p>
-
       Tired of slow, unreliable, or overpriced internet? Get ready for a better connection for working from home, streaming, gaming, business, or school. Join us and help bring better internet to your area.
-
     </p>
-
 
     <a class="hero-cta" href="#waitlist-form">
       <span>JOIN THE WAITLIST NOW!!!</span>
       <span class="hero-cta-arrow" aria-hidden="true">↗</span>
     </a>
 
-
     <div class="stats">
-
       <div class="stat">
-
-        <strong>
-          Fast
-        </strong>
-
-        <small>
-          Built for everyday connectivity
-        </small>
-
+        <strong>Fast</strong>
+        <small>Built for everyday connectivity</small>
       </div>
 
-
       <div class="stat">
-
-        <strong>
-          Reliable
-        </strong>
-
-        <small>
-          Connection you can count on
-        </small>
-
+        <strong>Reliable</strong>
+        <small>Connection you can count on</small>
       </div>
-
     </div>
-
   </div>
 
-
   <!-- WAITLIST FORM -->
-
   <div class="card" id="waitlist-form">
-
     <div id="formView">
-
-      <h2>
-        Join the waitlist
-      </h2>
-
-
-      <p class="sub">
-
-        Tell us where you are and what
-        matters most to you. We'll keep
-        you updated about availability.
-
-      </p>
-
+      <h2>Join the waitlist</h2>
+      <p class="sub">Tell us where you are and what matters most to you. We'll keep you updated about availability.</p>
 
       <form id="waitForm">
-
-
         <!-- NAME + PHONE -->
-
         <div class="row">
-
           <div class="field">
-
-            <label>
-              Full name
-            </label>
-
-            <input
-              id="name"
-              required
-              placeholder="Enter your full name"
-            >
-
+            <label for="name">Full name</label>
+            <input id="name" required placeholder="Enter your full name">
           </div>
 
-
           <div class="field">
-
-            <label>
-              Phone number
-            </label>
-
-            <input
-              id="phone"
-              required
-              placeholder="Enter your phone number"
-            >
-
+            <label for="phone">Phone number</label>
+            <input id="phone" required placeholder="Enter your phone number">
           </div>
-
         </div>
-
 
         <!-- EMAIL + AREA -->
-
         <div class="row">
-
           <div class="field">
-
-            <label>
-              Email address
-            </label>
-
-            <input
-              id="email"
-              type="email"
-              required
-              placeholder="Enter your email address"
-            >
-
+            <label for="email">Email address</label>
+            <input id="email" type="email" required placeholder="Enter your email address">
           </div>
 
-
           <div class="field">
-
-            <label>
-              Your area
-            </label>
-
-            <input
-              id="area"
-              required
-              placeholder="Enter your area"
-            >
-
+            <label for="area">Your area</label>
+            <input id="area" required placeholder="Enter your area">
           </div>
-
         </div>
-
 
         <!-- CUSTOMER TYPE + PLAN -->
-
         <div class="row">
-
           <div class="field">
-
-            <label>
-              Customer type
-            </label>
-
+            <label for="type">Customer type</label>
             <select id="type">
-
-              <option>
-                Individual / Home
-              </option>
-
-              <option>
-                Business
-              </option>
-
+              <option>Individual / Home</option>
+              <option>Business</option>
             </select>
-
           </div>
-
 
           <div class="field">
-
-            <label>
-              Preferred plan
-            </label>
-
+            <label for="plan">Preferred plan</label>
             <select id="plan">
-
-              <option>
-                Not sure yet
-              </option>
-
-              <option>
-                Home plan
-              </option>
-
-              <option>
-                Business plan
-              </option>
-
+              <option>Not sure yet</option>
+              <option>Home plan</option>
+              <option>Business plan</option>
             </select>
-
           </div>
-
         </div>
-
 
         <!-- CUSTOMER PRIORITY -->
-
         <div class="field">
-
-          <label>
-            What matters to you?
-          </label>
-
-          <select
-            id="priority"
-            required
-          >
-
-            <option value="">
-              Select what matters most
-            </option>
-
-            <option>
-              Fast internet
-            </option>
-
-            <option>
-              Affordable pricing
-            </option>
-
-            <option>
-              Reliable connection
-            </option>
-
-            <option>
-              Unlimited data
-            </option>
-
-            <option>
-              Business internet
-            </option>
-
-            <option>
-              Good customer service
-            </option>
-
-            <option>
-              Wide coverage
-            </option>
-
-            <option>
-              Flexible plans
-            </option>
-
-            <option>
-              Easy installation
-            </option>
-
+          <label for="priority">What matters to you?</label>
+          <select id="priority" required>
+            <option value="">Select what matters most</option>
+            <option>Fast internet</option>
+            <option>Affordable pricing</option>
+            <option>Reliable connection</option>
+            <option>Unlimited data</option>
+            <option>Business internet</option>
+            <option>Good customer service</option>
+            <option>Wide coverage</option>
+            <option>Flexible plans</option>
+            <option>Easy installation</option>
           </select>
-
         </div>
-
 
         <!-- LANDMARK -->
-
         <div class="field">
-
-          <label>
-
-            Nearest landmark
-
-            <span
-              style="
-                color:var(--muted);
-                font-weight:500
-              "
-            >
-              (optional)
-            </span>
-
-          </label>
-
-
-          <input
-            id="landmark"
-            placeholder="Enter a nearby landmark"
-          >
-
+          <label for="landmark">Nearest landmark <span style="color:var(--muted);font-weight:500">(optional)</span></label>
+          <input id="landmark" placeholder="Enter a nearby landmark">
         </div>
 
-
         <!-- CONSENT -->
-
         <label class="check">
-
-          <input
-            id="consent"
-            type="checkbox"
-            required
-          >
-
-          <span>
-
-            I agree to be contacted about
-            internet service availability
-            and launch updates.
-
-          </span>
-
+          <input id="consent" type="checkbox" required>
+          <span>I agree to be contacted about internet service availability and launch updates.</span>
         </label>
 
+        <div class="form-status" id="formStatus" role="status" aria-live="polite" hidden></div>
 
-        <div
-          class="form-status"
-          id="formStatus"
-          role="status"
-          aria-live="polite"
-          hidden
-        ></div>
-
-
-        <button
-          id="submitButton"
-          type="submit"
-        >
-
+        <button id="submitButton" type="submit">
           JOIN THE WAITLIST NOW!!!
-
         </button>
-
-
       </form>
-
     </div>
-
 
     <!-- SUCCESS MESSAGE -->
-
-    <div
-      class="success"
-      id="success"
-    >
-
-      <div class="icon">
-        ✓
-      </div>
-
-
-      <h3>
-        You're on the list!
-      </h3>
-
-
-      <p>
-
-        Thanks for signing up.
-        We've saved your details and
-        will let you know when the service
-        becomes available in your area.
-
-      </p>
-
-
-      <button
-        type="button"
-        id="again"
-      >
-
-        Add another person
-
-      </button>
-
+    <div class="success" id="success">
+      <div class="icon">✓</div>
+      <h3>You're on the list!</h3>
+      <p>Thanks for signing up. We've saved your details and will let you know when the service becomes available in your area.</p>
+      <button type="button" id="again">Add another person</button>
     </div>
-
   </div>
 
 </section>
 
-
 <!-- WAITLIST BENEFITS AND DEMAND SECTION -->
-
-<section
-  class="coverage"
-  id="why"
->
-
+<section class="coverage" id="why">
   <div class="coveragebox">
 
-
-    <div class="coverage-intro">
-
-      <span class="coverage-kicker">
-        What's in it for me?
-      </span>
-
-      <h2>
-        Get in early. Help shape what comes next.
-      </h2>
-
-
-      <p>
-
-        Joining the waitlist keeps you in the loop and helps us understand where better internet is needed most.
-
-      </p>
-
+    <div class="coverage-top">
+      <div class="coverage-intro">
+        <span class="coverage-kicker">What's in it for me?</span>
+        <h2>Get in early. Help shape what comes next.</h2>
+        <p>Joining the waitlist keeps you in the loop and helps us understand where better internet is needed most.</p>
+      </div>
+      <div class="coverage-photo">
+        <img src="assets/lifestyle-hero.jpg" alt="Woman working on a laptop while her family enjoys a show at home" width="1376" height="768" loading="lazy" decoding="async">
+      </div>
     </div>
 
-
     <div class="benefit-grid">
-
       <article class="benefit-card">
         <div class="benefit-icon" aria-hidden="true">01</div>
         <h3>Be first in line</h3>
@@ -1305,90 +957,43 @@ footer {
         <h3>Know when your area is ready</h3>
         <p>We'll notify you as soon as your address or area becomes eligible for service.</p>
       </article>
-
     </div>
 
-
     <div class="demand-footer">
-
       <div>
         <h3>What matters most to you?</h3>
         <p>Your answers help us plan around real customer needs.</p>
       </div>
 
-
       <div class="areas" aria-label="Things customers value">
-
-      <span class="area">
-        Fast internet
-      </span>
-
-      <span class="area">
-        Affordable pricing
-      </span>
-
-      <span class="area">
-        Reliable connection
-      </span>
-
-      <span class="area">
-        Unlimited data
-      </span>
-
-      <span class="area">
-        Business internet
-      </span>
-
-      <span class="area">
-        Good customer service
-      </span>
-
-      <span class="area">
-        Wide coverage
-      </span>
-
-      <span class="area">
-        Flexible plans
-      </span>
-
-      <span class="area">
-        Easy installation
-      </span>
-
+        <span class="area">Fast internet</span>
+        <span class="area">Affordable pricing</span>
+        <span class="area">Reliable connection</span>
+        <span class="area">Unlimited data</span>
+        <span class="area">Business internet</span>
+        <span class="area">Good customer service</span>
+        <span class="area">Wide coverage</span>
+        <span class="area">Flexible plans</span>
+        <span class="area">Easy installation</span>
       </div>
-
     </div>
 
   </div>
-
 </section>
-
 
 </main>
 
-
 <!-- FOOTER -->
-
 <footer>
-
   <div class="foot">
-
-    <span>
-      © 2026 Internet Service. Waitlist.
-    </span>
-
-    <span>
-      Better internet. Built around your needs.
-    </span>
-
+    <span>© 2026 Internet Service. Waitlist.</span>
+    <span>Better internet. Built around your needs.</span>
   </div>
-
 </footer>
-
 
 </div>
 
-
+<!-- SUPABASE INTEGRATION SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="./supabase-config.js"></script>
 <script>
