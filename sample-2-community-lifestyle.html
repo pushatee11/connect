@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Connecta — Concept 2: Warm Connected Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-subtle: #f1f5f9;
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --accent: #10b981;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+      --shadow-lg: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+      --shadow-card: 0 25px 60px -15px rgba(2, 132, 199, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Concept switcher bar */
+    .switcher-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .switcher-pill {
+      display: inline-flex;
+      background: #e2e8f0;
+      padding: 3px;
+      border-radius: 30px;
+      gap: 4px;
+    }
+    .switcher-pill a {
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .switcher-pill a.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
+    }
+    .switcher-pill a:hover:not(.active) {
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navigation */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      color: white;
+    }
+    .brand-icon svg { width: 22px; height: 22px; fill: white; }
+    .nav-cta {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-cta-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 40px 0 70px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: start;
+    }
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+    }
+
+    .tagline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(36px, 4.5vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: #0f172a;
+      margin-bottom: 18px;
+    }
+    .hero-title span {
+      color: var(--primary);
+    }
+    .hero-subtitle {
+      font-size: 18px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* Lifestyle Hero Visual */
+    .lifestyle-visual {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 4px solid var(--surface);
+      margin-bottom: 30px;
+    }
+    .lifestyle-visual img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .lifestyle-visual:hover img {
+      transform: scale(1.02);
+    }
+    .visual-pill-grid {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      right: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .visual-pill {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 30px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    /* Neighborhood Demand Tracker */
+    .community-tracker {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 20px 24px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    .tracker-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .tracker-header h4 { font-size: 14px; font-weight: 700; color: #0f172a; }
+    .tracker-header span { font-size: 12px; font-weight: 700; color: var(--accent); }
+    .tracker-bar {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .tracker-bar-fill {
+      width: 78%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 10px;
+    }
+    .tracker-footer {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Waitlist Signup Form Card */
+    .form-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: var(--shadow-lg);
+      position: sticky;
+      top: 90px;
+    }
+    .form-title {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+    }
+    .form-sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 500px) {
+      .form-row { grid-template-columns: 1fr; }
+    }
+    .field {
+      margin-bottom: 16px;
+    }
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #334155;
+      margin-bottom: 6px;
+    }
+    .field input,
+    .field select {
+      width: 100%;
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 14px;
+      color: #0f172a;
+      outline: none;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.12);
+    }
+    .form-check {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .form-check input {
+      margin-top: 3px;
+      accent-color: var(--primary);
+    }
+    .btn-submit {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+    }
+    .btn-submit:hover:not(:disabled) {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+    }
+    .btn-submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .form-error {
+      display: none;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 24px 10px;
+    }
+    .success-badge {
+      width: 60px;
+      height: 60px;
+      background: #dcfce7;
+      color: #16a34a;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      margin: 0 auto 16px;
+    }
+    .btn-reset {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 16px;
+    }
+
+    /* Plan Teasers */
+    .plans-section {
+      padding: 60px 0 100px;
+      border-top: 1px solid var(--border);
+    }
+    .plans-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .plans-header h3 { font-size: 28px; font-weight: 800; margin-bottom: 8px; }
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 860px) {
+      .plans-grid { grid-template-columns: 1fr; }
+    }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .plan-card.featured {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-card);
+      position: relative;
+    }
+    .plan-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    .plan-card h4 { font-size: 20px; font-weight: 800; margin-bottom: 6px; }
+    .plan-speed { font-size: 26px; font-weight: 800; color: var(--primary); margin-bottom: 12px; }
+    .plan-card ul { list-style: none; margin-bottom: 24px; }
+    .plan-card li { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .plan-card li::before { content: "✓"; color: var(--accent); font-weight: bold; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Concept Switcher Bar -->
+  <div class="switcher-bar">
+    <div style="font-weight: 700; display:flex; align-items:center; gap:8px;">
+      <span style="color:var(--primary);">✨ Design Preview:</span>
+      <span>Concept 2 (Warm Connected Community)</span>
+    </div>
+    <div class="switcher-pill">
+      <a href="sample-1-cyber-fiber.html">Concept 1: Cyber Fiber</a>
+      <a href="sample-2-community-lifestyle.html" class="active">Concept 2: Warm Lifestyle</a>
+      <a href="index.html">Original</a>
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- Navigation -->
+    <nav>
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <span>Connecta</span>
+      </div>
+
+      <div class="nav-cta">
+        <span class="nav-cta-dot"></span>
+        <span>Taking Waitlist for 2026 Rollout</span>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      
+      <!-- Left Column -->
+      <div>
+        <div class="tagline-badge">🏡 High-Speed Home & Business Fiber</div>
+        <h1 class="hero-title">
+          Finally, Internet That Works as <span>Hard as You Do.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Say goodbye to video call freezes, midnight disconnections, and capped data. Connecta delivers fast, dependable, truly unlimited fiber internet right into your estate.
+        </p>
+
+        <!-- Lifestyle Visual Image with overlay badges -->
+        <div class="lifestyle-visual">
+          <img src="assets/lifestyle-hero.jpg" alt="Seamless home working and 4K family streaming" />
+          <div class="visual-pill-grid">
+            <span class="visual-pill">📶 5G & Pure Fiber</span>
+            <span class="visual-pill">📺 Buffer-Free 4K Streaming</span>
+            <span class="visual-pill">💻 100% Reliable Work From Home</span>
+          </div>
+        </div>
+
+        <!-- Community Demand Tracker -->
+        <div class="community-tracker">
+          <div class="tracker-header">
+            <h4>Community Demand Priority</h4>
+            <span>78% Goal Reached</span>
+          </div>
+          <div class="tracker-bar">
+            <div class="tracker-bar-fill"></div>
+          </div>
+          <div class="tracker-footer">
+            Over 390 residents in your district have requested coverage. We deploy fiber to the neighborhoods with the most requests first!
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Supabase Form -->
+      <div>
+        <div class="form-card">
+          <h3 class="form-title">Vote For Your Neighborhood</h3>
+          <p class="form-sub">Sign up to get priority installation and early-bird discount packages when lines open.</p>
+
+          <div id="formView">
+            <form id="waitForm">
+              
+              <div class="form-row">
+                <div class="field">
+                  <label for="name">Full name</label>
+                  <input id="name" required placeholder="Your full name" />
+                </div>
+                <div class="field">
+                  <label for="phone">Phone number</label>
+                  <input id="phone" required placeholder="Phone number" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input id="email" type="email" required placeholder="name@email.com" />
+                </div>
+                <div class="field">
+                  <label for="area">Your area / estate</label>
+                  <input id="area" required placeholder="e.g. Airport Residential" />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field">
+                  <label for="type">Customer type</label>
+                  <select id="type">
+                    <option>Individual / Home</option>
+                    <option>Business</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="plan">Preferred plan</label>
+                  <select id="plan">
+                    <option>Home plan</option>
+                    <option>Business plan</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="priority">What matters to you most?</label>
+                <select id="priority" required>
+                  <option value="">Select your top priority</option>
+                  <option>Fast internet</option>
+                  <option>Affordable pricing</option>
+                  <option>Reliable connection</option>
+                  <option>Unlimited data</option>
+                  <option>Business internet</option>
+                  <option>Good customer service</option>
+                  <option>Wide coverage</option>
+                  <option>Flexible plans</option>
+                  <option>Easy installation</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="landmark">Nearest landmark <span style="font-weight:400; color:var(--text-muted);">(optional)</span></label>
+                <input id="landmark" placeholder="e.g. Near Shell filling station" />
+              </div>
+
+              <label class="form-check">
+                <input id="consent" type="checkbox" required checked />
+                <span>I agree to be contacted with rollout updates and service availability in my area.</span>
+              </label>
+
+              <button type="submit" class="btn-submit" id="submitButton">
+                <span>Join Neighborhood Waitlist</span>
+                <span>→</span>
+              </button>
+
+              <div class="form-error" id="formError"></div>
+            </form>
+          </div>
+
+          <div class="form-success" id="success">
+            <div class="success-badge">✓</div>
+            <h3>You're on the priority list!</h3>
+            <p style="color:var(--text-muted); font-size:14px; margin-top:8px;">We've registered your area's vote. We will notify you the moment fiber laying starts on your street.</p>
+            <button type="button" class="btn-reset" id="again">Add Another Household</button>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Planned Packages -->
+    <section class="plans-section">
+      <div class="plans-header">
+        <h3>Choose The Right Speed For Your Lifestyle</h3>
+        <p style="color:var(--text-muted);">Transparent, unthrottled, unmetered fiber internet.</p>
+      </div>
+
+      <div class="plans-grid">
+        <div class="plan-card">
+          <div>
+            <h4>Home Starter</h4>
+            <div class="plan-speed">100 Mbps</div>
+            <ul>
+              <li>Ideal for small apartments</li>
+              <li>Buffer-free HD streaming</li>
+              <li>Smooth video conferencing</li>
+              <li>Unlimited monthly data</li>
+            </ul>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:var(--primary);">No setup hidden fees</div>
+        </div>
+
+        <div class="plan-card featured">
+          <div class="plan-badge">Most Popular</div>
+          <div>
+            <h4>Family & Creator</h4>
+            <div class="plan-speed">300 Mbps</div>
+            <ul>
+              <li>Supports 10+ devices simultaneously</li>
+              <li>4K Ultra-HD on multiple TVs</li>
+              <li>Low-latency online gaming</li>
+              <li>Priority technical support</li>
+            </ul>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:var(--primary);">Free high-power Wi-Fi router</div>
+        </div>
+
+        <div class="plan-card">
+          <div>
+            <h4>Business Fiber</h4>
+            <div class="plan-speed">1,000 Mbps</div>
+            <ul>
+              <li>Dedicated symmetrical gigabit link</li>
+              <li>Static IP address available</li>
+              <li>99.9% uptime SLA guarantee</li>
+              <li>24/7 dedicated account manager</li>
+            </ul>
+          </div>
+          <div style="font-size:13px; font-weight:700; color:var(--primary);">Enterprise SLA included</div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Connecta Internet. Built for neighborhood broadband excellence.</p>
+    </footer>
+
+  </div>
+
+  <!-- Supabase Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./supabase-config.js"></script>
+  <script>
+    const form = document.getElementById("waitForm");
+    const formView = document.getElementById("formView");
+    const success = document.getElementById("success");
+    const formError = document.getElementById("formError");
+    const submitButton = document.getElementById("submitButton");
+
+    const config = window.SUPABASE_CONFIG || {};
+    const publicKey = config.publishableKey || config.anonKey;
+    const supabaseClient =
+      window.supabase && config.url && publicKey
+        ? window.supabase.createClient(config.url, publicKey)
+        : null;
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+      formError.style.display = "none";
+      formError.textContent = "";
+
+      if (!supabaseClient) {
+        formError.textContent = "Supabase configuration missing or offline.";
+        formError.style.display = "block";
+        return;
+      }
+
+      const submission = {
+        full_name: document.getElementById("name").value.trim(),
+        phone: document.getElementById("phone").value.trim(),
+        email: document.getElementById("email").value.trim().toLowerCase(),
+        area: document.getElementById("area").value.trim(),
+        customer_type: document.getElementById("type").value,
+        preferred_plan: document.getElementById("plan").value,
+        priority: document.getElementById("priority").value,
+        landmark: document.getElementById("landmark").value.trim() || null,
+        consent: document.getElementById("consent").checked,
+      };
+
+      const originalText = submitButton.innerHTML;
+      submitButton.disabled = true;
+      submitButton.innerHTML = "<span>Registering area…</span>";
+
+      try {
+        const { error } = await supabaseClient
+          .from("waitlist_submissions")
+          .insert(submission);
+
+        if (error) throw error;
+
+        form.reset();
+        formView.style.display = "none";
+        success.style.display = "block";
+      } catch (err) {
+        console.error("Submission failed:", err);
+        formError.textContent = err.message || "Couldn't save your signup. Please check your connection.";
+        formError.style.display = "block";
+      } finally {
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalText;
+      }
+    });
+
+    document.getElementById("again").addEventListener("click", function() {
+      form.reset();
+      formError.style.display = "none";
+      success.style.display = "none";
+      formView.style.display = "block";
+    });
+  </script>
+</body>
+</html>
