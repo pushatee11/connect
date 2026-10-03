@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -46,57 +46,7 @@ body {
   min-height: 100vh;
 }
 
-/* =========================
-   PREVIEW SWITCHER BAR
-========================= */
-
-.preview-switcher {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background: rgba(11, 19, 36, 0.94);
-  backdrop-filter: blur(12px);
-  color: #fff;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 10px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-}
-
-.preview-pill {
-  display: inline-flex;
-  background: rgba(255, 255, 255, 0.08);
-  padding: 3px;
-  border-radius: 30px;
-  gap: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.preview-pill a {
-  color: #94a3b8;
-  text-decoration: none;
-  padding: 5px 14px;
-  border-radius: 20px;
-  font-weight: 700;
-  font-size: 12px;
-  transition: all 0.2s;
-}
-
-.preview-pill a.active {
-  background: linear-gradient(135deg, var(--brand), var(--brand-glow));
-  color: #ffffff;
-  box-shadow: 0 2px 10px rgba(11, 124, 255, 0.4);
-}
-
-.preview-pill a:hover:not(.active) {
-  color: #ffffff;
-}
-
-/* =========================
-   NAVIGATION
+/* =========================`r`n   NAVIGATION
 ========================= */
 
 nav {
@@ -235,7 +185,7 @@ nav {
   max-width: 600px;
   border-radius: 22px;
   overflow: hidden;
-  margin: 14px 0 24px;
+  margin: 14px 0 10px;
   border: 1px solid rgba(11, 124, 255, 0.3);
   box-shadow:
     0 18px 45px rgba(11, 124, 255, 0.18),
@@ -296,8 +246,9 @@ nav {
   font-size: 17px;
   line-height: 1.65;
   color: var(--muted);
-  max-width: 580px;
-  margin: 0 0 28px;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 0 22px;
 }
 
 .hero-cta {
@@ -334,48 +285,49 @@ nav {
 }
 
 .stats {
-  display: flex;
-  gap: 22px;
-  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+@media(max-width: 500px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
 }
 
 .stat {
   background: var(--surface);
   border: 1px solid var(--border);
-  padding: 18px 22px;
-  border-radius: 18px;
-  min-width: 170px;
-  box-shadow: 0 10px 30px rgba(6, 19, 39, 0.05);
-  transition: transform 0.2s, border-color 0.2s;
+  padding: 16px 18px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(6, 19, 39, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .stat:hover {
   transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(6, 19, 39, 0.08);
 }
 
-.stat:first-child {
-  border-left: 4px solid var(--brand);
-}
-
-.stat:last-child {
-  border-left: 4px solid var(--brand2);
-}
+.stat.stat-fast { border-left: 4px solid var(--brand); }
+.stat.stat-reliable { border-left: 4px solid var(--brand2); }
+.stat.stat-affordable { border-left: 4px solid #f59e0b; }
+.stat.stat-unlimited { border-left: 4px solid var(--purple); }
 
 .stat strong {
-  font-size: 22px;
+  font-size: 19px;
   display: block;
   letter-spacing: -.03em;
   font-weight: 850;
-  margin-bottom: 3px;
+  margin-bottom: 2px;
 }
 
-.stat:first-child strong {
-  color: var(--brand);
-}
-
-.stat:last-child strong {
-  color: #10b981;
-}
+.stat.stat-fast strong { color: var(--brand); }
+.stat.stat-reliable strong { color: #10b981; }
+.stat.stat-affordable strong { color: #d97706; }
+.stat.stat-unlimited strong { color: var(--purple); }
 
 .stat small {
   color: var(--muted);
@@ -485,6 +437,152 @@ nav {
   color: #dc2626;
 }
 
+
+/* =========================
+   MULTI-STEP FORM STYLES
+========================= */
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.step-item.active {
+  color: var(--brand);
+}
+
+.step-item.completed {
+  color: var(--brand2);
+}
+
+.step-bubble {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #f1f5f9;
+  border: 2px solid var(--border);
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+
+.step-item.active .step-bubble {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: white;
+  box-shadow: 0 0 12px rgba(11, 124, 255, 0.4);
+}
+
+.step-item.completed .step-bubble {
+  background: var(--brand2);
+  border-color: var(--brand2);
+  color: white;
+}
+
+.step-divider-line {
+  flex: 1;
+  height: 2px;
+  background: var(--border);
+  margin: 0 12px;
+  position: relative;
+}
+
+.step-divider-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--brand), var(--brand2));
+  transition: width 0.3s ease;
+}
+
+.form-step {
+  display: none;
+  animation: fadeInStep 0.3s ease forwards;
+}
+
+.form-step.active {
+  display: block;
+}
+
+@keyframes fadeInStep {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-step-next {
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+  height: 52px;
+  background:
+    linear-gradient(
+      100deg,
+      #0b7cff 0%,
+      #00c6ff 50%,
+      #0862d4 100%
+    );
+  color: white;
+  font-weight: 850;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(11, 124, 255, 0.3);
+  transition: all 0.2s;
+  letter-spacing: .02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.btn-step-next:hover {
+  filter: brightness(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 16px 36px rgba(11, 124, 255, 0.4);
+}
+
+.step-actions {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-step-prev {
+  border: 1px solid var(--border);
+  background: #f1f5f9;
+  color: var(--text);
+  border-radius: 14px;
+  height: 52px;
+  font-weight: 800;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-step-prev:hover {
+  background: #e2e8f0;
+}
 button[type="submit"] {
   width: 100%;
   border: 0;
@@ -946,22 +1044,91 @@ footer {
   }
 }
 
-</style>
+
+
+
+/* =========================
+   BOTTOM FINAL CTA BANNER
+========================= */
+
+.bottom-cta-section {
+  max-width: 1160px;
+  margin: 0 auto 90px;
+  padding: 0 24px;
+}
+
+.bottom-cta-box {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(11,124,255,.25), transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(24,199,161,.20), transparent 45%),
+    linear-gradient(135deg, #091526 0%, #0d223f 50%, #08111e 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 32px;
+  padding: 56px 40px;
+  text-align: center;
+  color: white;
+  box-shadow:
+    0 25px 70px rgba(6, 19, 39, 0.18),
+    0 0 45px rgba(11, 124, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.bottom-cta-box h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -.04em;
+  line-height: 1.15;
+  margin: 0 0 14px;
+  font-weight: 850;
+}
+
+.bottom-cta-box h2 span {
+  background: linear-gradient(100deg, #00c6ff, #18c7a1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bottom-cta-box p {
+  color: #cbd5e1;
+  font-size: 16px;
+  max-width: 620px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.bottom-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background:
+    linear-gradient(
+      100deg,
+      #0b7cff 0%,
+      #00c6ff 50%,
+      #0862d4 100%
+    );
+  color: white;
+  padding: 18px 36px;
+  border-radius: 16px;
+  font-weight: 850;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 14px 35px rgba(11, 124, 255, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: .02em;
+}
+
+.bottom-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(11, 124, 255, 0.5);
+}</style>
 </head>
 
 <body>
 
-  <!-- Preview Switcher Bar -->
-  <div class="preview-switcher">
-    <div style="font-weight: 700; display:flex; align-items:center; gap:8px;">
-      <span style="color:#00f2fe;">✨ Design Mode:</span>
-      <span>Sample 1 (Cyber Fiber under Title + Warm Lifestyle as Message Backdrop)</span>
-    </div>
-    <div class="preview-pill">
-      <a href="index.html" class="active">Sample 1: Backdrop Behind Message</a>
-      <a href="sample-b-middle-spotlight.html">Sample 2: Middle Spotlight Card</a>
-    </div>
-  </div>
+  
 
 <div class="app">
 
@@ -991,13 +1158,22 @@ footer {
     </div>
 
     <h1>
-      Better internet is
+      Ghana deserves internet that
       <span>
-        on the way.
+        doesn't quit at 7pm.
       </span>
     </h1>
 
-    <!-- BROAD, ATTRACTIVE CYBER FIBER IMAGE RIGHT BENEATH 'BETTER INTERNET IS ON THE WAY' -->
+    <p>
+      The call drops, the data vanishes &amp; the carrier blames you? Tired of slow or overpriced internet? We're building a connection for work, family and business that does what it says. Get on the list and help bring better internet to your area.
+    </p>
+
+    <a class="hero-cta" href="#waitlist-form" style="margin-bottom: 24px;">
+      <span>JOIN THE WAITLIST NOW!!!</span>
+      <span class="hero-cta-arrow" aria-hidden="true">↗</span>
+    </a>
+
+        <!-- BROAD, ATTRACTIVE CYBER FIBER IMAGE -->
     <div class="hero-fiber-banner">
       <img src="assets/fiber-hero.jpg" alt="Pure Optical Gigabit Fiber Internet" />
       <div class="fiber-overlay-info">
@@ -1006,24 +1182,26 @@ footer {
       </div>
     </div>
 
-    <p>
-      Tired of slow, unreliable, or overpriced internet? Get ready for a better connection for working from home, streaming, gaming, business, or school. Join us and help bring better internet to your area.
-    </p>
-
-    <a class="hero-cta" href="#waitlist-form">
-      <span>JOIN THE WAITLIST NOW!!!</span>
-      <span class="hero-cta-arrow" aria-hidden="true">↗</span>
-    </a>
-
+    <!-- 4 COMPACT STAT CARDS -->
     <div class="stats">
-      <div class="stat">
+      <div class="stat stat-fast">
         <strong>Fast</strong>
         <small>Built for everyday connectivity</small>
       </div>
 
-      <div class="stat">
+      <div class="stat stat-reliable">
         <strong>Reliable</strong>
         <small>Connection you can count on</small>
+      </div>
+
+      <div class="stat stat-affordable">
+        <strong>Affordable</strong>
+        <small>Costs less for the best</small>
+      </div>
+
+      <div class="stat stat-unlimited">
+        <strong>Unlimited</strong>
+        <small>Truly unmetered &amp; uncapped data</small>
       </div>
     </div>
   </div>
@@ -1034,9 +1212,26 @@ footer {
       <h2>Join the waitlist</h2>
       <p class="sub">Tell us where you are and what matters most to you. We'll keep you updated about availability.</p>
 
+            <!-- Multi-step Indicator -->
+      <div class="step-indicator">
+        <div class="step-item active" id="step1Indicator">
+          <span class="step-bubble">1</span>
+          <span>Contact Details</span>
+        </div>
+        <div class="step-divider-line">
+          <div class="step-divider-progress" id="stepProgressLine"></div>
+        </div>
+        <div class="step-item" id="step2Indicator">
+          <span class="step-bubble">2</span>
+          <span>Area & Preferences</span>
+        </div>
+      </div>
+
       <form id="waitForm">
-        <!-- NAME + PHONE -->
-        <div class="row">
+        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+
+        <!-- STEP 1: FULL NAME, PHONE, EMAIL -->
+        <div class="form-step active" id="formStep1">
           <div class="field">
             <label>Full name</label>
             <input id="name" required placeholder="Enter your full name">
@@ -1046,75 +1241,163 @@ footer {
             <label>Phone number</label>
             <input id="phone" required placeholder="Enter your phone number">
           </div>
-        </div>
 
-        <!-- EMAIL + AREA -->
-        <div class="row">
           <div class="field">
             <label>Email address</label>
             <input id="email" type="email" required placeholder="Enter your email address">
           </div>
 
-          <div class="field">
-            <label>Your area</label>
-            <input id="area" required placeholder="Enter your area">
-          </div>
+          <button type="button" class="btn-step-next" id="nextStepBtn">
+            <span>Continue to Step 2</span>
+            <span>?</span>
+          </button>
         </div>
 
-        <!-- CUSTOMER TYPE + PLAN -->
-        <div class="row">
+        <!-- STEP 2: CUSTOMER TYPE, AREA, WHAT MATTERS MOST (+ PLAN, LANDMARK, CONSENT) -->
+        <div class="form-step" id="formStep2">
+          <div class="row">
+            <div class="field">
+              <label>Customer type</label>
+              <select id="type">
+                <option>Individual / Home</option>
+                <option>Business</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Preferred plan</label>
+              <select id="plan">
+                <option>Not sure yet</option>
+                <option>Home plan</option>
+                <option>Business plan</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Your area</label>
+              <select id="area" required>
+                <option value="">Select your area in Greater Accra</option>
+                <optgroup label="Prime & Central Accra">
+                  <option>Airport Residential Area</option>
+                  <option>Airport City / Airport West</option>
+                  <option>Cantonments</option>
+                  <option>East Legon</option>
+                  <option>East Legon Hills</option>
+                  <option>Labone</option>
+                  <option>Osu</option>
+                  <option>Ridge / North Ridge</option>
+                  <option>Roman Ridge</option>
+                  <option>Dzorwulu</option>
+                  <option>Abelemkpe</option>
+                  <option>Kanda</option>
+                </optgroup>
+                <optgroup label="Adenta, Madina, Kwabenya & Foothills">
+                  <option>Kwabenya (Atomic / Point 1 / Hills)</option>
+                  <option>Agbogba</option>
+                  <option>Adenta (SSNIT / Barrier / Housing)</option>
+                  <option>Ashaley Botwe / Little Roses</option>
+                  <option>Madina</option>
+                  <option>Ogbojo</option>
+                  <option>Oyarifa</option>
+                  <option>Ayi Mensah</option>
+                  <option>Pantang</option>
+                  <option>Danfa</option>
+                  <option>Abokobi</option>
+                  <option>Frafraha</option>
+                </optgroup>
+                <optgroup label="Spintex, Ledzokuku & Coastal East">
+                  <option>Spintex Road</option>
+                  <option>Baatsona</option>
+                  <option>Lashibi</option>
+                  <option>Sakumono</option>
+                  <option>Teshie</option>
+                  <option>Nungua</option>
+                  <option>Klagon</option>
+                </optgroup>
+                <optgroup label="Tema & Its Environs">
+                  <option>Tema Communities 1 - 12</option>
+                  <option>Tema Community 18 / 19 / 20</option>
+                  <option>Tema Community 25</option>
+                  <option>Ashaiman & Environs</option>
+                  <option>Tema Heavy / Light Industrial</option>
+                  <option>Kpone</option>
+                  <option>Afienya</option>
+                  <option>Dawhenya</option>
+                  <option>Prampram</option>
+                </optgroup>
+                <optgroup label="Accra North & West">
+                  <option>Achimota</option>
+                  <option>Dome / Pillar 2</option>
+                  <option>Haatso</option>
+                  <option>Ashongman Estate</option>
+                  <option>West Legon / Westlands</option>
+                  <option>Legon Campus / Surroundings</option>
+                  <option>Taifa</option>
+                  <option>Tesano</option>
+                  <option>Lapaz / Abeka</option>
+                  <option>Kwashieman</option>
+                  <option>Darkuman / Odorkor</option>
+                  <option>Kaneshie / Mataheko</option>
+                  <option>Dansoman</option>
+                  <option>Korle Bu / Mamprobi / Chorkor</option>
+                </optgroup>
+                <optgroup label="Ga North, South & Commuter Corridors">
+                  <option>Kasoa & Environs (Budge / CP / Amanfrom)</option>
+                  <option>Nsawam & Environs</option>
+                  <option>Ofankor</option>
+                  <option>Pokuase</option>
+                  <option>Amasaman</option>
+                  <option>Ablekuma</option>
+                  <option>Mallam / Gbawe</option>
+                  <option>McCarthy Hill / Weija</option>
+                  <option>SCC / Tetegu</option>
+                </optgroup>
+                <optgroup label="Other">
+                  <option>Other Greater Accra / Environs Community</option>
+                </optgroup>
+              </select>
+            </div>
+
+            <div class="field">
+              <label>Nearest landmark <span style="color:var(--muted);font-weight:500">(optional)</span></label>
+              <input id="landmark" placeholder="Enter a nearby landmark">
+            </div>
+          </div>
+
+          <!-- CUSTOMER PRIORITY -->
           <div class="field">
-            <label>Customer type</label>
-            <select id="type">
-              <option>Individual / Home</option>
-              <option>Business</option>
+            <label>What matters to you?</label>
+            <select id="priority" required>
+              <option value="">Select what matters most</option>
+              <option>Fast internet</option>
+              <option>Affordable pricing</option>
+              <option>Reliable connection</option>
+              <option>Unlimited data</option>
+              <option>Business internet</option>
+              <option>Good customer service</option>
+              <option>Wide coverage</option>
+              <option>Flexible plans</option>
+              <option>Easy installation</option>
             </select>
           </div>
 
-          <div class="field">
-            <label>Preferred plan</label>
-            <select id="plan">
-              <option>Not sure yet</option>
-              <option>Home plan</option>
-              <option>Business plan</option>
-            </select>
+          <!-- CONSENT -->
+          <label class="check">
+            <input id="consent" type="checkbox" required>
+            <span>I agree to be contacted about internet service availability and launch updates.</span>
+          </label>
+
+          <div class="step-actions">
+            <button type="button" class="btn-step-prev" id="prevStepBtn">
+              ? Back
+            </button>
+            <button id="submitButton" type="submit">
+              JOIN THE WAITLIST NOW!!!
+            </button>
           </div>
         </div>
-
-        <!-- CUSTOMER PRIORITY -->
-        <div class="field">
-          <label>What matters to you?</label>
-          <select id="priority" required>
-            <option value="">Select what matters most</option>
-            <option>Fast internet</option>
-            <option>Affordable pricing</option>
-            <option>Reliable connection</option>
-            <option>Unlimited data</option>
-            <option>Business internet</option>
-            <option>Good customer service</option>
-            <option>Wide coverage</option>
-            <option>Flexible plans</option>
-            <option>Easy installation</option>
-          </select>
-        </div>
-
-        <!-- LANDMARK -->
-        <div class="field">
-          <label>Nearest landmark <span style="color:var(--muted);font-weight:500">(optional)</span></label>
-          <input id="landmark" placeholder="Enter a nearby landmark">
-        </div>
-
-        <!-- CONSENT -->
-        <label class="check">
-          <input id="consent" type="checkbox" required>
-          <span>I agree to be contacted about internet service availability and launch updates.</span>
-        </label>
-
-        <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-
-        <button id="submitButton" type="submit">
-          JOIN THE WAITLIST NOW!!!
-        </button>
       </form>
     </div>
 
@@ -1238,6 +1521,17 @@ footer {
   </div>
 </section>
 
+<!-- BOTTOM FINAL CTA SECTION -->
+<section class="bottom-cta-section">
+  <div class="bottom-cta-box">
+    <h2>Ready for internet that <span>actually delivers?</span></h2>
+    <p>Don't get left behind on slow, buffer-heavy connections. Reserve your priority spot on the waitlist today and help us bring fiber to your neighborhood first.</p>
+    <a class="bottom-cta-btn" href="#waitlist-form">
+      <span>JOIN THE WAITLIST NOW!!!</span>
+      <span style="font-size: 20px;" aria-hidden="true">↗</span>
+    </a>
+  </div>
+</section>
 </main>
 
 <!-- FOOTER -->
@@ -1255,11 +1549,85 @@ footer {
 <script src="./supabase-config.js"></script>
 <script>
 
+// Smooth scroll and focus into waitlist form when CTA buttons are clicked
+document.querySelectorAll('a[href="#waitlist-form"]').forEach(function(btn) {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const formCard = document.getElementById('waitlist-form');
+    const nameField = document.getElementById('name');
+
+    if (formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Pulse animation to draw eye to the form
+      formCard.style.transition = 'box-shadow 0.3s ease, border-color 0.3s ease';
+      formCard.style.borderColor = 'var(--brand)';
+      formCard.style.boxShadow = '0 0 0 6px rgba(11, 124, 255, 0.25), 0 24px 70px rgba(6, 19, 39, 0.15)';
+      
+      setTimeout(function() {
+        formCard.style.borderColor = 'rgba(11, 124, 255, 0.2)';
+        formCard.style.boxShadow = '0 24px 70px rgba(6, 19, 39, 0.10), 0 0 35px rgba(11, 124, 255, 0.06)';
+        if (nameField) nameField.focus();
+      }, 400);
+    }
+  });
+});
+
 const form = document.getElementById("waitForm");
 const formView = document.getElementById("formView");
 const success = document.getElementById("success");
 const formStatus = document.getElementById("formStatus");
 const submitButton = document.getElementById("submitButton");
+
+// Multi-step elements
+const step1 = document.getElementById("formStep1");
+const step2 = document.getElementById("formStep2");
+const step1Indicator = document.getElementById("step1Indicator");
+const step2Indicator = document.getElementById("step2Indicator");
+const stepProgressLine = document.getElementById("stepProgressLine");
+const nextStepBtn = document.getElementById("nextStepBtn");
+const prevStepBtn = document.getElementById("prevStepBtn");
+
+const nameInput = document.getElementById("name");
+const phoneInput = document.getElementById("phone");
+const emailInput = document.getElementById("email");
+
+function validateStep1() {
+  formStatus.style.display = "none";
+  if (!nameInput.checkValidity()) {
+    nameInput.reportValidity();
+    return false;
+  }
+  if (!phoneInput.checkValidity()) {
+    phoneInput.reportValidity();
+    return false;
+  }
+  if (!emailInput.checkValidity()) {
+    emailInput.reportValidity();
+    return false;
+  }
+  return true;
+}
+
+nextStepBtn.addEventListener("click", function() {
+  if (validateStep1()) {
+    step1.classList.remove("active");
+    step2.classList.add("active");
+    step1Indicator.classList.remove("active");
+    step1Indicator.classList.add("completed");
+    step2Indicator.classList.add("active");
+    if (stepProgressLine) stepProgressLine.style.width = "100%";
+  }
+});
+
+prevStepBtn.addEventListener("click", function() {
+  step2.classList.remove("active");
+  step1.classList.add("active");
+  step2Indicator.classList.remove("active");
+  step1Indicator.classList.add("active");
+  step1Indicator.classList.remove("completed");
+  if (stepProgressLine) stepProgressLine.style.width = "0%";
+});
 
 const config = window.SUPABASE_CONFIG || {};
 const publicKey = config.publishableKey || config.anonKey;
@@ -1295,7 +1663,7 @@ form.addEventListener("submit", async function(event) {
   };
 
   submitButton.disabled = true;
-  submitButton.textContent = "Submitting…";
+  submitButton.textContent = "Submitting�";
 
   try {
     const { error } = await supabaseClient
@@ -1319,6 +1687,12 @@ form.addEventListener("submit", async function(event) {
 document.getElementById("again").addEventListener("click", function() {
   form.reset();
   formStatus.style.display = "none";
+  step2.classList.remove("active");
+  step1.classList.add("active");
+  step2Indicator.classList.remove("active");
+  step1Indicator.classList.add("active");
+  step1Indicator.classList.remove("completed");
+  if (stepProgressLine) stepProgressLine.style.width = "0%";
   success.style.display = "none";
   formView.style.display = "block";
 });
