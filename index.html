@@ -891,36 +891,6 @@ button[type="submit"]:disabled {
 
 .plan-card {
   cursor: pointer;
-  user-select: none;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-}
-
-.plan-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--brand);
-  box-shadow: 0 18px 45px rgba(11, 124, 255, 0.16);
-}
-
-.plan-card:active {
-  transform: translateY(-1px) scale(0.99);
-}
-
-.plan-select-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-  font-size: 13px;
-  font-weight: 800;
-  color: var(--brand);
-  transition: gap 0.2s ease;
-}
-
-.plan-card:hover .plan-select-pill {
-  gap: 10px;
-  color: #00c6ff;
-}
-.plan-card-orig {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 22px;
@@ -1587,7 +1557,7 @@ footer {
         <li>Unlimited monthly data</li>
         <li>Standard Wi-Fi router included</li>
       </ul>
-      <div class="plan-footer"><span>No setup hidden fees</span><div class="plan-select-pill">Select this plan &rarr;</div></div>
+      <div class="plan-footer">No setup hidden fees</div>
     </div>
 
     <!-- 2. FAMILY & CREATOR -->
@@ -1606,7 +1576,7 @@ footer {
         <li>Priority customer support</li>
         <li>Unlimited monthly data</li>
       </ul>
-      <div class="plan-footer"><span>Free high-power Wi-Fi router</span><div class="plan-select-pill">Select this plan &rarr;</div></div>
+      <div class="plan-footer">Free high-power Wi-Fi router</div>
     </div>
 
     <!-- 3. BUSINESS FIBER -->
@@ -1625,7 +1595,7 @@ footer {
         <li>99% uptime guarantee</li>
         <li>24/7 dedicated account manager</li>
       </ul>
-      <div class="plan-footer"><span>Enterprise SLA included</span><div class="plan-select-pill">Select this plan &rarr;</div></div>
+      <div class="plan-footer">Enterprise SLA included</div>
     </div>
   </div>
 </section>
