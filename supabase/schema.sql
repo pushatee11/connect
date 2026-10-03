@@ -1,4 +1,4 @@
-create table if not exists public.waitlist_submissions (
+﻿create table if not exists public.waitlist_submissions (
   id uuid primary key default gen_random_uuid(),
   created_at timestamptz not null default now(),
   full_name text not null,
@@ -22,7 +22,7 @@ create table if not exists public.waitlist_submissions (
   constraint waitlist_customer_type_valid
     check (customer_type in ('Individual / Home', 'Business')),
   constraint waitlist_plan_valid
-    check (preferred_plan in ('Not sure yet', 'Home plan', 'Business plan')),
+    check (preferred_plan in ('Not sure yet', 'Home plan', 'Family & Creator', 'Business plan')),
   constraint waitlist_priority_valid
     check (priority in (
       'Fast internet',
