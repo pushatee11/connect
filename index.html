@@ -913,6 +913,33 @@ button[type="submit"]:disabled {
   box-shadow: 0 20px 55px rgba(11, 124, 255, 0.14);
 }
 
+.plan-badge {
+  position: absolute;
+  top: -12px;
+  right: 22px;
+  color: white;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  padding: 5px 14px;
+  border-radius: 999px;
+}
+
+.plan-badge.best-value {
+  background: linear-gradient(135deg, #10b981, #18c7a1);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.plan-badge.most-popular {
+  background: linear-gradient(135deg, var(--brand), #00c6ff);
+  box-shadow: 0 4px 14px rgba(11, 124, 255, 0.4);
+}
+
+.plan-badge.dedicated {
+  background: linear-gradient(135deg, #7657ff, #a855f7);
+  box-shadow: 0 4px 14px rgba(118, 87, 255, 0.4);
+}
 .plan-featured-badge {
   position: absolute;
   top: -12px;
@@ -1549,7 +1576,7 @@ footer {
     <div class="plan-card">
       <div class="plan-top">
         <span class="plan-tier">Business Fiber</span>
-        <div class="plan-speed">150-250+ <span>Mbps</span></div>
+        <div class="plan-speed">300+ <span>Mbps</span></div>
         <p class="plan-desc">Dedicated gigabit connection for businesses & heavy users.</p>
       </div>
       <ul class="plan-features">
