@@ -22,7 +22,7 @@
   constraint waitlist_customer_type_valid
     check (customer_type in ('Individual / Home', 'Business')),
   constraint waitlist_plan_valid
-    check (preferred_plan in ('Not sure yet', 'Home plan', 'Family & Creator', 'Business plan')),
+    check (preferred_plan in ('Not sure yet', 'Home plan', 'Family & Creator plan', 'Business plan')),
   constraint waitlist_priority_valid
     check (priority in (
       'Fast internet',
