@@ -12,17 +12,19 @@
 <style>
 
 :root {
-  --bg: #f4f7fc;
-  --surface: #ffffff;
-  --text: #0b1324;
-  --muted: #526077;
-  --border: #dbe4ef;
+  --bg: #0a1220;
+  --surface: #111c30;
+  --text: #eaf1fb;
+  --muted: #9fb0c6;
+  --border: #22314a;
+  --tint: #12294a;
+  --tinttx: #8cc2ff;
   --brand: #0b7cff;
   --brand-glow: #00c6ff;
   --brand2: #18c7a1;
   --purple: #7657ff;
   --cyan: #00f2fe;
-  --shadow: 0 24px 70px rgba(6, 19, 39, 0.10);
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.40);
 }
 
 * {
@@ -33,12 +35,12 @@ body {
   margin: 0;
   color: var(--text);
   font-family: 'Plus Jakarta Sans', Inter, Arial, sans-serif;
-
+  background-color: var(--bg);
   background:
-    radial-gradient(circle at 10% 6%, rgba(11,124,255,.16) 0 150px, transparent 320px),
-    radial-gradient(circle at 90% 12%, rgba(24,199,161,.16) 0 170px, transparent 340px),
-    radial-gradient(circle at 75% 45%, rgba(118,87,255,.12) 0 180px, transparent 320px),
-    radial-gradient(circle at 12% 70%, rgba(0,242,254,.12) 0 160px, transparent 300px),
+    radial-gradient(circle at 10% 6%, rgba(11,124,255,.18) 0 170px, transparent 340px),
+    radial-gradient(circle at 90% 12%, rgba(24,199,161,.18) 0 180px, transparent 360px),
+    radial-gradient(circle at 75% 45%, rgba(118,87,255,.14) 0 190px, transparent 340px),
+    radial-gradient(circle at 12% 70%, rgba(0,242,254,.14) 0 170px, transparent 320px),
     var(--bg);
 }
 
@@ -99,12 +101,13 @@ nav {
 }
 
 .navlinks a.pill {
-  background: #0b1324;
-  color: white;
+  background: var(--tint);
+  border: 1px solid rgba(11, 124, 255, 0.3);
+  color: var(--tinttx);
   padding: 9px 18px;
   border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(11, 19, 36, 0.2);
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .navlinks a.pill:hover {
@@ -131,9 +134,9 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: #e1f0ff;
-  border: 1px solid #b9dcfe;
-  color: #075fc7;
+  background: var(--tint);
+  border: 1px solid rgba(11, 124, 255, 0.28);
+  color: var(--tinttx);
   border-radius: 999px;
   padding: 8px 14px;
   font-size: 12px;
@@ -521,7 +524,7 @@ nav {
   display: block;
   font-size: 13px;
   font-weight: 700;
-  color: #27364b;
+  color: #cbd5e1;
   margin-bottom: 6px;
 }
 
@@ -529,7 +532,7 @@ nav {
 .field select {
   width: 100%;
   border: 1px solid var(--border);
-  background: #f8fafc;
+  background: #091222;
   border-radius: 12px;
   padding: 12px 14px;
   font-size: 14px;
@@ -542,8 +545,14 @@ nav {
 .field input:focus,
 .field select:focus {
   border-color: var(--brand);
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(11, 124, 255, 0.12);
+  background: #0d1b32;
+  box-shadow: 0 0 0 4px rgba(11, 124, 255, 0.25);
+}
+
+.field select option,
+.field select optgroup {
+  background: #091222;
+  color: #eaf1fb;
 }
 
 .check {
@@ -614,7 +623,7 @@ nav {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: #f1f5f9;
+  background: #182740;
   border: 2px solid var(--border);
   display: grid;
   place-items: center;
@@ -710,7 +719,7 @@ nav {
 
 .btn-step-prev {
   border: 1px solid var(--border);
-  background: #f1f5f9;
+  background: #182740;
   color: var(--text);
   border-radius: 14px;
   height: 52px;
@@ -721,7 +730,7 @@ nav {
 }
 
 .btn-step-prev:hover {
-  background: #e2e8f0;
+  background: #223452;
 }
 button[type="submit"] {
   width: 100%;
@@ -788,13 +797,17 @@ button[type="submit"]:disabled {
 }
 
 #again {
-  background: #f1f5f9;
+  background: #182740;
   border: 1px solid var(--border);
   color: var(--text);
   font-weight: 700;
   padding: 12px 24px;
   border-radius: 12px;
   cursor: pointer;
+}
+
+#again:hover {
+  background: #223452;
 }
 
 /* ===================================================
@@ -990,16 +1003,16 @@ button[type="submit"]:disabled {
 
 .plans-kicker {
   display: inline-block;
-  color: var(--brand);
+  color: var(--tinttx);
   font-size: 11px;
   font-weight: 850;
   letter-spacing: .12em;
   text-transform: uppercase;
   margin-bottom: 8px;
-  background: #e1f0ff;
+  background: var(--tint);
   padding: 4px 12px;
   border-radius: 999px;
-  border: 1px solid #b9dcfe;
+  border: 1px solid rgba(11, 124, 255, 0.28);
 }
 
 .plans-intro h2 {
@@ -1172,7 +1185,7 @@ footer {
   padding: 30px 24px;
   color: var(--muted);
   font-size: 13px;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(10, 18, 32, 0.85);
 }
 
 .foot {
