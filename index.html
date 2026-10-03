@@ -890,6 +890,37 @@ button[type="submit"]:disabled {
 }
 
 .plan-card {
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand);
+  box-shadow: 0 18px 45px rgba(11, 124, 255, 0.16);
+}
+
+.plan-card:active {
+  transform: translateY(-1px) scale(0.99);
+}
+
+.plan-select-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--brand);
+  transition: gap 0.2s ease;
+}
+
+.plan-card:hover .plan-select-pill {
+  gap: 10px;
+  color: #00c6ff;
+}
+.plan-card-orig {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 22px;
@@ -1543,7 +1574,7 @@ footer {
 
     <div class="plans-grid">
     <!-- 1. HOME STARTER -->
-    <div class="plan-card">
+    <div class="plan-card" data-plan="Home plan">
       <div class="plan-badge best-value">Best Value</div>
       <div class="plan-top">
         <span class="plan-tier">Home Starter</span>
@@ -1556,7 +1587,7 @@ footer {
         <li>Unlimited monthly data</li>
         <li>Standard Wi-Fi router included</li>
       </ul>
-      <div class="plan-footer">No setup hidden fees</div>
+      <div class="plan-footer"><span>No setup hidden fees</span><div class="plan-select-pill">Select this plan &rarr;</div></div>
     </div>
 
     <!-- 2. FAMILY & CREATOR -->
@@ -1575,11 +1606,11 @@ footer {
         <li>Priority customer support</li>
         <li>Unlimited monthly data</li>
       </ul>
-      <div class="plan-footer">Free high-power Wi-Fi router</div>
+      <div class="plan-footer"><span>Free high-power Wi-Fi router</span><div class="plan-select-pill">Select this plan &rarr;</div></div>
     </div>
 
     <!-- 3. BUSINESS FIBER -->
-    <div class="plan-card">
+    <div class="plan-card" data-plan="Business plan">
       <div class="plan-badge dedicated">Dedicated / High-Priority</div>
       <div class="plan-top">
         <span class="plan-tier">Business Fiber</span>
@@ -1594,7 +1625,7 @@ footer {
         <li>99% uptime guarantee</li>
         <li>24/7 dedicated account manager</li>
       </ul>
-      <div class="plan-footer">Enterprise SLA included</div>
+      <div class="plan-footer"><span>Enterprise SLA included</span><div class="plan-select-pill">Select this plan &rarr;</div></div>
     </div>
   </div>
 </section>
@@ -1738,6 +1769,57 @@ function showFormError(message) {
   formStatus.textContent = message;
   formStatus.style.display = "block";
 }
+
+// Clickable Plan Cards: Select plan and scroll to Preferred Plan section in waitlist form
+document.querySelectorAll('.plan-card[data-plan]').forEach(function(card) {
+  card.addEventListener('click', function() {
+    const selectedPlan = this.getAttribute('data-plan');
+    const planSelect = document.getElementById('plan');
+    const formCard = document.getElementById('waitlist-form');
+    
+    // Set plan value in dropdown
+    if (planSelect && selectedPlan) {
+      planSelect.value = selectedPlan;
+    }
+
+    // Switch form directly to Step 2 (where preferred plan is located)
+    if (step1 && step2) {
+      step1.classList.remove('active');
+      step2.classList.add('active');
+      if (step1Indicator && step2Indicator) {
+        step1Indicator.classList.remove('active');
+        step1Indicator.classList.add('completed');
+        step2Indicator.classList.add('active');
+      }
+      if (stepProgressLine) stepProgressLine.style.width = '100%';
+    }
+
+    // Smooth scroll to waitlist form
+    if (formCard) {
+      formCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      
+      // Pulse effect on form card
+      formCard.style.borderColor = 'var(--brand)';
+      formCard.style.boxShadow = '0 0 0 6px rgba(11, 124, 255, 0.25), 0 24px 70px rgba(6, 19, 39, 0.15)';
+      
+      setTimeout(function() {
+        formCard.style.borderColor = 'rgba(11, 124, 255, 0.2)';
+        formCard.style.boxShadow = '0 24px 70px rgba(6, 19, 39, 0.10), 0 0 35px rgba(11, 124, 255, 0.06)';
+        
+        // Focus and highlight the plan dropdown
+        if (planSelect) {
+          planSelect.focus();
+          planSelect.style.borderColor = 'var(--brand)';
+          planSelect.style.boxShadow = '0 0 0 4px rgba(11, 124, 255, 0.3)';
+          setTimeout(function() {
+            planSelect.style.borderColor = '';
+            planSelect.style.boxShadow = '';
+          }, 1500);
+        }
+      }, 500);
+    }
+  });
+});
 
 form.addEventListener("submit", async function(event) {
   event.preventDefault();
